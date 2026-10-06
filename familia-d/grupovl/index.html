@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Grupo VL | Propuesta D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<!-- Tailwind CSS por CDN. Para un sitio real se compila y se sirve un archivo CSS propio (más liviano y sin depender del CDN). -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        colors: {
+          // Azul corporativo profundo (autoridad) y gris pizarra (neutralidad industrial)
+          navy: { 950: '#071226', 900: '#0b1b38', 800: '#10285a' },
+          brand: { 50: '#eef3fb', 100: '#dbe6f6', 500: '#3d6fc0', 600: '#1f4e9c', 700: '#173f82', 800: '#12326a' },
+          amber: { brand: '#e8a100' }
+        },
+        boxShadow: { suave: '0 24px 48px -28px rgba(15,23,42,.35)' }
+      }
+    }
+  };
+</script>
+<link rel="stylesheet" href="componentes/mapa-chile.css">
+<link rel="stylesheet" href="componentes/carrusel-clientes.css">
+<style>
+  /* Respeta a quien pide menos movimiento: sin scroll suave ni animaciones decorativas */
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .animate-ping { animation: none; } * { transition-duration: .01ms !important; } }
+  /* Fondo del hero: degradado profundo con una trama sutil de puntos (da textura sin competir con el texto) */
+  .hero-fondo { background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.07) 1px, transparent 0), linear-gradient(135deg, #071226 0%, #0b1b38 45%, #173f82 100%); background-size: 28px 28px, auto; }
+</style>
+</head>
+<body class="bg-white font-sans text-slate-800 antialiased">
+<a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-brand-700 focus:shadow-lg">Saltar al contenido</a>
+
+<!-- ============ ENCABEZADO ============
+     Microinteracción: fijo arriba, con el botón de cotizar siempre a un clic; gana borde y sombra al hacer scroll. -->
+<header id="encabezado" class="sticky top-0 z-50 border-b border-transparent bg-white/90 backdrop-blur transition-shadow duration-300">
+  <div class="mx-auto flex h-[72px] max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
+    <a href="#inicio" class="flex shrink-0 items-center" aria-label="Grupo VL, inicio"><img src="img/logo-grupovl.png" alt="Grupo VL" class="h-11 w-auto"></a>
+    <nav id="menu" class="ml-auto hidden items-center gap-1 lg:flex" aria-label="Principal">
+      <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900" href="#empresas">Empresas</a>
+      <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900" href="#cifras">Presencia</a>
+      <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900" href="#clientes">Clientes</a>
+      <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900" href="#cotizar">Licitaciones</a>
+    </nav>
+    <div class="ml-auto flex items-center gap-2 lg:ml-2">
+      <a href="#cotizar" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">Cotizar
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button id="burger" type="button" class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-slate-700 lg:hidden" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <nav id="menu-movil" class="hidden border-t border-slate-200 bg-white px-4 py-3 lg:hidden" aria-label="Principal, móvil">
+    <a class="block rounded-lg px-3 py-3 font-medium text-slate-700 hover:bg-slate-100" href="#empresas">Empresas</a>
+    <a class="block rounded-lg px-3 py-3 font-medium text-slate-700 hover:bg-slate-100" href="#cifras">Presencia</a>
+    <a class="block rounded-lg px-3 py-3 font-medium text-slate-700 hover:bg-slate-100" href="#clientes">Clientes</a>
+    <a class="block rounded-lg px-3 py-3 font-medium text-slate-700 hover:bg-slate-100" href="#cotizar">Licitaciones y cotización</a>
+  </nav>
+</header>
+
+<main id="contenido">
+
+<!-- ============ HERO ============
+     Dos columnas: promesa y llamados a la acción a la izquierda, video corporativo a la derecha.
+     Los dos botones tienen jerarquía distinta: el primario (blanco, sólido) lleva a cotizar; el secundario (borde) a las empresas. -->
+<section id="inicio" class="hero-fondo relative isolate overflow-hidden text-white">
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.1fr_.9fr] lg:gap-16 lg:px-8 lg:py-28">
+    <div>
+      <p class="mb-5 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[.16em] text-brand-100"><span class="h-0.5 w-6 bg-amber-brand"></span>Grupo empresarial · servicios integrales</p>
+      <h1 class="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">Un solo socio para los servicios que tu operación necesita</h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-200">Aseo, seguridad privada, gestión de residuos, áreas verdes y estructuras metálicas, a través de empresas especializadas del grupo.</p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#cotizar" class="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-[15px] font-semibold text-navy-900 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Solicitar cotización
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#empresas" class="inline-flex items-center rounded-xl border border-white/40 bg-white/5 px-6 py-3.5 text-[15px] font-semibold text-white backdrop-blur transition hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Conocer las empresas</a>
+      </div>
+      <ul class="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-300">
+        <li class="flex items-center gap-2"><svg class="h-4 w-4 text-amber-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Una sola propuesta</li>
+        <li class="flex items-center gap-2"><svg class="h-4 w-4 text-amber-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Un solo contacto comercial</li>
+        <li class="flex items-center gap-2"><svg class="h-4 w-4 text-amber-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>ISO 9001, 14001 y 45001</li>
+      </ul>
+    </div>
+
+    <!-- Contenedor del video. Microinteracción: la imagen se acerca suavemente al pasar el cursor y el botón emite un anillo que late.
+         El video real aún no existe: el botón muestra un aviso. -->
+    <figure class="group relative aspect-[16/10] overflow-hidden rounded-3xl border border-white/25 bg-navy-950 shadow-[0_40px_80px_-30px_rgba(0,0,0,.8)]">
+      <img src="img/poster-video.jpg" alt="Equipo de Grupo VL en terreno" class="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+      <button type="button" data-aviso="Muestra: aquí se reproduciría el video corporativo del grupo (por producir)." class="absolute inset-0 m-auto grid h-20 w-20 place-items-center rounded-full bg-white text-navy-900 shadow-2xl transition hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" aria-label="Reproducir video corporativo">
+        <span class="absolute inset-0 animate-ping rounded-full bg-white/50"></span>
+        <svg class="relative ml-1 h-8 w-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+      </button>
+      <figcaption class="absolute bottom-4 left-5 right-5 text-sm font-medium text-white/90">Video corporativo · espacio reservado</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ UN GRUPO, VARIAS ESPECIALIDADES ============
+     Cuadrícula de tarjetas. Microinteracción: al pasar el cursor la tarjeta sube 4 px, gana sombra y su borde toma el azul;
+     la flecha del enlace avanza. Cada tarjeta es un solo enlace (toda el área es clicable). -->
+<section id="empresas" class="bg-white py-20 sm:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="mb-3 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[.16em] text-brand-600"><span class="h-0.5 w-6 bg-brand-600"></span>Empresas del grupo</p>
+        <h2 class="max-w-xl text-3xl font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl lg:text-[44px]">Un grupo, varias especialidades</h2>
+      </div>
+      <p class="max-w-md text-slate-600">Cada servicio lo presta una empresa con su propio equipo y experiencia. Tú tratas con un solo contacto comercial.</p>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <a href="../../familia-c/suat/" class="group flex min-h-[210px] flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-suave focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+        <div><img src="img/logo-suat.png" alt="SUAT" class="h-9 w-auto rounded bg-white"><h3 class="mt-4 text-xl font-bold text-navy-900">SUAT</h3><p class="mt-2 text-[15px] leading-relaxed text-slate-600">Seguridad privada: guardias, supervisión y apoyo tecnológico.</p></div>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">Ver SUAT y cotizar <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="../../familia-c/tresur/" class="group flex min-h-[210px] flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-suave focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+        <div><img src="img/logo-tresur.png" alt="Tresur" class="h-9 w-auto rounded bg-white"><h3 class="mt-4 text-xl font-bold text-navy-900">Tresur</h3><p class="mt-2 text-[15px] leading-relaxed text-slate-600">Residuos, áreas verdes y limpieza industrial.</p></div>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">Ver Tresur y cotizar <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="../../familia-c/maquinfra/" class="group flex min-h-[210px] flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-suave focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+        <div><img src="img/logo-maquinfra.png" alt="Maquinfra" class="h-9 w-auto rounded bg-white"><h3 class="mt-4 text-xl font-bold text-navy-900">Maquinfra</h3><p class="mt-2 text-[15px] leading-relaxed text-slate-600">Estructuras metálicas para túneles, telecomunicaciones y minería.</p></div>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">Ver Maquinfra y cotizar <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="../../familia-c/maxilimpio/" class="group flex min-h-[210px] flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-suave focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+        <div><span class="text-xs font-bold uppercase tracking-[.12em] text-brand-600">Aseo</span><h3 class="mt-3 text-xl font-bold text-navy-900">Maxilimpio</h3><p class="mt-2 text-[15px] leading-relaxed text-slate-600">Limpieza diaria y especializada, incluida limpieza en altura.</p></div>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">Ver Maxilimpio y cotizar <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="../../familia-c/captotal-ceducap/" class="group flex min-h-[210px] flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-suave focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+        <div><span class="text-xs font-bold uppercase tracking-[.12em] text-brand-600">Capacitación</span><h3 class="mt-3 text-xl font-bold text-navy-900">Captotal y Ceducap</h3><p class="mt-2 text-[15px] leading-relaxed text-slate-600">Capacitación para personas y empresas.</p></div>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">Ver capacitación y consultar <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="#cotizar" data-servicios="todos" class="group flex min-h-[210px] flex-col justify-between rounded-2xl bg-gradient-to-br from-brand-600 to-navy-800 p-6 text-white transition duration-300 hover:-translate-y-1 hover:shadow-suave focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+        <div><span class="text-xs font-bold uppercase tracking-[.12em] text-brand-100">Un solo contacto</span><h3 class="mt-3 text-xl font-bold">Cotizar otros servicios</h3><p class="mt-2 text-[15px] leading-relaxed text-slate-200">Combina servicios de varias empresas y recibe una sola propuesta.</p></div>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold">Armar mi cotización <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIFRAS Y MAPA INTERACTIVO ============
+     Contadores: el valor final ya está escrito en el HTML (se lee aunque falle el script); solo se anima al entrar en pantalla.
+     El mapa es un componente propio: ver componentes/mapa-chile.js. -->
+<section id="cifras" class="bg-slate-50 py-20 sm:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="mb-3 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[.16em] text-brand-600"><span class="h-0.5 w-6 bg-brand-600"></span>Grupo VL en cifras</p>
+        <h2 class="max-w-xl text-3xl font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl lg:text-[44px]">Presencia en el país</h2>
+      </div>
+      <p class="max-w-md text-slate-600">Toca una región del mapa para ver el detalle y los datos de la casa matriz.</p>
+    </div>
+
+    <!-- Contadores en una fila; el mapa va debajo a todo el ancho para que su panel de detalle tenga espacio -->
+    <div class="mb-12 grid gap-8 sm:grid-cols-3">
+      <div class="border-t-2 border-brand-600 pt-5"><b class="block text-6xl font-extrabold leading-none tracking-tight text-brand-600 tabular-nums sm:text-7xl" data-contar="1000" data-prefijo="+">+1.000</b><span class="mt-3 block text-slate-600">trabajadores en el grupo</span><small class="mt-1 block text-xs text-slate-500">La web dice cerca de 1.000 y LinkedIn 1.500: confirmar la cifra oficial.</small></div>
+      <div class="border-t-2 border-brand-600 pt-5"><b class="block text-6xl font-extrabold leading-none tracking-tight text-brand-600 tabular-nums sm:text-7xl" data-contar="8">8</b><span class="mt-3 block text-slate-600">regiones con presencia</span></div>
+      <div class="border-t-2 border-brand-600 pt-5"><b class="block text-6xl font-extrabold leading-none tracking-tight text-brand-600 tabular-nums sm:text-7xl" data-contar="60" data-prefijo="+">+60</b><span class="mt-3 block text-slate-600">clientes en el país</span></div>
+    </div>
+
+    <div>
+      <!-- Componente: mapa interactivo de Chile -->
+      <div class="cmap" id="mapa-chile" data-cmap-raiz>
+        <div class="cmap__escenario">
+          <svg class="cmap__svg" data-cmap="svg" role="group" aria-label="Mapa esquemático de Chile por regiones. Selecciona una región para ver el detalle." focusable="false"></svg>
+          <div class="cmap__tip" data-cmap="tip" role="tooltip" hidden></div>
+        </div>
+        <div class="cmap__lateral">
+          <div class="cmap__panel" data-cmap="panel" aria-live="polite">
+            <p class="cmap__estado" data-cmap="estado"></p>
+            <h3 class="cmap__titulo" data-cmap="titulo"></h3>
+            <p class="cmap__texto" data-cmap="texto"></p>
+            <ul class="cmap__clientes" data-cmap="clientes"></ul>
+            <dl class="cmap__hq" data-cmap="hq" hidden></dl>
+          </div>
+          <div class="cmap__chips" role="group" aria-label="Elegir región" data-cmap="chips"></div>
+          <ul class="cmap__leyenda">
+            <li><i class="l-conf"></i>Con clientes visibles hoy</li>
+            <li><i class="l-ejem"></i>Ejemplo, por confirmar</li>
+            <li><i class="l-sin"></i>Sin información cargada</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="mt-8 text-xs text-slate-500">Mapa esquemático con el ancho exagerado, hecho con datos de Natural Earth (dominio público). Las regiones de ejemplo deben confirmarse con Grupo VL.</p>
+  </div>
+</section>
+
+<!-- ============ CARRUSEL DE CLIENTES ============
+     Componente propio: ver componentes/carrusel-clientes.js. Logos en gris y semitransparentes; el que cruza el centro
+     toma color, se agranda y muestra su nombre resaltado. Los filtros reducen el carrusel a una categoría. -->
+<section id="clientes" class="bg-white py-20 sm:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-10 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="mb-3 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[.16em] text-brand-600"><span class="h-0.5 w-6 bg-brand-600"></span>Clientes</p>
+        <h2 class="max-w-xl text-3xl font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl lg:text-[44px]">Quienes confían en el grupo</h2>
+      </div>
+      <p class="max-w-md text-slate-600">Salud, Estado, municipios, universidades y empresas.</p>
+    </div>
+
+    <div class="ccar" id="carrusel-clientes" data-ccar-raiz>
+      <div class="ccar__filtros" role="group" aria-label="Filtrar clientes por tipo" data-ccar="filtros"></div>
+      <div class="ccar__ventana" data-ccar="ventana" role="region" aria-roledescription="carrusel" aria-label="Clientes de Grupo VL. Usa las flechas izquierda y derecha para recorrerlo." tabindex="0">
+        <ul class="ccar__pista" data-ccar="pista"></ul>
+      </div>
+      <div class="ccar__controles">
+        <button type="button" class="ccar__btn" data-ccar="prev" aria-label="Cliente anterior"></button>
+        <button type="button" class="ccar__btn" data-ccar="pausa" aria-pressed="false" aria-label="Pausar carrusel"></button>
+        <button type="button" class="ccar__btn" data-ccar="next" aria-label="Cliente siguiente"></button>
+        <p class="ccar__estado" data-ccar="estado" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="mt-6 text-xs text-slate-500">Cada cliente debe autorizar que se muestre su nombre antes de publicar.</p>
+  </div>
+</section>
+
+<!-- ============ LICITACIONES Y COTIZACIÓN ============
+     Un solo formulario con dos modos (Cotización / Licitación). El selector de servicios son "píldoras" que cambian de estado
+     al marcarse (se pueden combinar varias). Se hacen con casillas reales ocultas + estilos "peer": funciona con teclado y lector de pantalla. -->
+<section id="cotizar" class="bg-navy-900 py-20 text-white sm:py-28">
+  <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:gap-16 lg:px-8">
+    <div>
+      <p class="mb-3 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[.16em] text-brand-100"><span class="h-0.5 w-6 bg-amber-brand"></span>Cotizar y licitaciones</p>
+      <h2 class="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-[44px]">Hablemos de tu proyecto o de tu licitación</h2>
+      <p class="mt-5 max-w-lg text-lg leading-relaxed text-slate-300">Si tu institución o empresa licita servicios de aseo, seguridad, residuos, áreas verdes, estructuras o capacitación, el grupo prepara una propuesta técnica y económica completa. Aunque intervengan varias empresas, recibes una sola.</p>
+      <ol class="mt-9 grid gap-6">
+        <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 text-sm font-bold text-amber-brand">1</span><div><b class="block">Envíanos las bases</b><span class="text-sm text-slate-300">Indica el ID de la licitación, los servicios y la fecha de cierre.</span></div></li>
+        <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 text-sm font-bold text-amber-brand">2</span><div><b class="block">Evaluamos y respondemos</b><span class="text-sm text-slate-300">Revisamos requisitos y plazos, y te confirmamos si podemos participar.</span></div></li>
+        <li class="flex gap-4"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 text-sm font-bold text-amber-brand">3</span><div><b class="block">Una sola propuesta</b><span class="text-sm text-slate-300">Con la documentación del grupo: certificaciones, política de gestión y experiencia.</span></div></li>
+      </ol>
+      <ul class="mt-10 grid gap-3 text-sm text-slate-300">
+        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-amber-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 0-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>+56 2 2363 5000</li>
+        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-amber-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>comercial@grupovl.cl</li>
+        <li class="flex items-center gap-3"><svg class="h-5 w-5 text-amber-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Arturo Prat 1370, Santiago</li>
+      </ul>
+    </div>
+
+    <form id="formulario" novalidate class="rounded-3xl bg-white p-6 text-slate-800 shadow-2xl sm:p-8" data-mail="comercial@grupovl.cl">
+      <!-- Selector de modo (control segmentado). El estado se ve en la píldora blanca y se anuncia con aria-selected. -->
+      <div role="tablist" aria-label="Tipo de solicitud" class="mb-6 inline-flex rounded-xl bg-slate-100 p-1">
+        <button type="button" role="tab" id="tab-cot" aria-selected="true" data-modo="cotizacion" class="rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-600 transition aria-selected:bg-white aria-selected:text-navy-900 aria-selected:shadow">Cotización</button>
+        <button type="button" role="tab" id="tab-lic" aria-selected="false" data-modo="licitacion" class="rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-600 transition aria-selected:bg-white aria-selected:text-navy-900 aria-selected:shadow">Licitación</button>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <label class="grid gap-1.5 text-[13px] font-semibold" for="f-nombre">Nombre
+          <input id="f-nombre" autocomplete="name" class="w-full rounded-xl border border-slate-300 px-3.5 py-3 text-[15px] font-normal outline-none transition focus:border-brand-600 focus:ring-4 focus:ring-brand-600/20"></label>
+        <label class="grid gap-1.5 text-[13px] font-semibold" for="f-org">Empresa o institución
+          <input id="f-org" autocomplete="organization" class="w-full rounded-xl border border-slate-300 px-3.5 py-3 text-[15px] font-normal outline-none transition focus:border-brand-600 focus:ring-4 focus:ring-brand-600/20"></label>
+        <label class="grid gap-1.5 text-[13px] font-semibold" for="f-correo">Correo corporativo
+          <input id="f-correo" type="email" autocomplete="email" class="w-full rounded-xl border border-slate-300 px-3.5 py-3 text-[15px] font-normal outline-none transition focus:border-brand-600 focus:ring-4 focus:ring-brand-600/20"></label>
+        <label class="grid gap-1.5 text-[13px] font-semibold" for="f-tel">Teléfono
+          <input id="f-tel" type="tel" autocomplete="tel" class="w-full rounded-xl border border-slate-300 px-3.5 py-3 text-[15px] font-normal outline-none transition focus:border-brand-600 focus:ring-4 focus:ring-brand-600/20"></label>
+      </div>
+
+      <!-- Servicios: píldoras de selección múltiple -->
+      <fieldset class="mt-6">
+        <legend class="mb-3 text-[13px] font-semibold">Servicios que necesitas <span class="font-normal text-slate-500">(puedes elegir varios)</span></legend>
+        <div class="flex flex-wrap gap-2" id="pildoras">
+          <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Aseo industrial y de oficinas" class="peer sr-only"><span class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-brand-500 peer-checked:border-brand-600 peer-checked:bg-brand-600 peer-checked:text-white peer-checked:shadow-md peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-600">Aseo</span></label>
+          <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Seguridad privada" class="peer sr-only"><span class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-brand-500 peer-checked:border-brand-600 peer-checked:bg-brand-600 peer-checked:text-white peer-checked:shadow-md peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-600">Seguridad</span></label>
+          <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Gestión de residuos" class="peer sr-only"><span class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-brand-500 peer-checked:border-brand-600 peer-checked:bg-brand-600 peer-checked:text-white peer-checked:shadow-md peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-600">Residuos</span></label>
+          <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Áreas verdes" class="peer sr-only"><span class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-brand-500 peer-checked:border-brand-600 peer-checked:bg-brand-600 peer-checked:text-white peer-checked:shadow-md peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-600">Áreas verdes</span></label>
+          <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Estructuras metálicas" class="peer sr-only"><span class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-brand-500 peer-checked:border-brand-600 peer-checked:bg-brand-600 peer-checked:text-white peer-checked:shadow-md peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-600">Estructuras metálicas</span></label>
+          <label class="cursor-pointer"><input type="checkbox" name="servicio" value="Capacitación" class="peer sr-only"><span class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-brand-500 peer-checked:border-brand-600 peer-checked:bg-brand-600 peer-checked:text-white peer-checked:shadow-md peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-600">Capacitación</span></label>
+        </div>
+        <!-- Resumen vivo: cambia al marcar píldoras y anuncia el resultado a los lectores de pantalla -->
+        <p id="resumen" class="mt-3 text-sm text-slate-500" aria-live="polite">Ningún servicio seleccionado.</p>
+      </fieldset>
+
+      <!-- Campos que solo aparecen en modo Licitación -->
+      <div id="campos-licitacion" class="mt-6 hidden gap-4 sm:grid-cols-2">
+        <label class="grid gap-1.5 text-[13px] font-semibold" for="f-id">ID de la licitación
+          <input id="f-id" placeholder="Ej.: ID de Mercado Público" class="w-full rounded-xl border border-slate-300 px-3.5 py-3 text-[15px] font-normal outline-none transition focus:border-brand-600 focus:ring-4 focus:ring-brand-600/20"></label>
+        <label class="grid gap-1.5 text-[13px] font-semibold" for="f-cierre">Fecha de cierre
+          <input id="f-cierre" type="date" class="w-full rounded-xl border border-slate-300 px-3.5 py-3 text-[15px] font-normal outline-none transition focus:border-brand-600 focus:ring-4 focus:ring-brand-600/20"></label>
+        <!-- Zona para adjuntar las bases. Microinteracción: el borde y el fondo cambian al arrastrar un archivo encima, y se muestra su nombre. -->
+        <div class="sm:col-span-2">
+          <span class="mb-1.5 block text-[13px] font-semibold" id="lbl-bases">Bases de la licitación</span>
+          <label id="zona-bases" for="f-bases" class="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 px-4 py-8 text-center transition hover:border-brand-500 hover:bg-brand-50 focus-within:border-brand-600 focus-within:bg-brand-50">
+            <svg class="h-7 w-7 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>
+            <span id="nombre-archivo" class="text-sm font-semibold text-slate-700">Arrastra las bases aquí o haz clic para adjuntarlas</span>
+            <span class="text-xs text-slate-500">PDF, Word o Excel</span>
+            <input id="f-bases" type="file" class="sr-only" aria-labelledby="lbl-bases">
+          </label>
+        </div>
+      </div>
+
+      <label class="mt-6 grid gap-1.5 text-[13px] font-semibold" for="f-msg">¿Qué necesitas?
+        <textarea id="f-msg" rows="4" placeholder="Lugar, alcance y plazos" class="w-full rounded-xl border border-slate-300 px-3.5 py-3 text-[15px] font-normal outline-none transition focus:border-brand-600 focus:ring-4 focus:ring-brand-600/20"></textarea></label>
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+        <small class="text-slate-500">Te responde un ejecutivo en horario hábil.</small>
+        <button type="submit" id="enviar" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-6 py-3.5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-brand-700 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+          <span id="enviar-texto">Solicitar cotización</span>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <p id="resultado" class="mt-4 text-sm font-semibold text-emerald-700" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="bg-navy-950 text-sm text-slate-400">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
+    <div class="md:col-span-1"><img src="img/logo-grupovl.png" alt="Grupo VL" class="h-11 w-auto rounded bg-white p-1"><p class="mt-4 max-w-[30ch]">Sistema de gestión certificado por Applus: ISO 9001, ISO 14001 e ISO 45001.</p></div>
+    <div><h3 class="mb-3 text-xs font-bold uppercase tracking-[.1em] text-white">Contacto</h3><p>+56 2 2363 5000</p><p class="mt-1">comercial@grupovl.cl</p></div>
+    <div><h3 class="mb-3 text-xs font-bold uppercase tracking-[.1em] text-white">Ubicación</h3><p>Arturo Prat 1370, Santiago</p><p class="mt-1">Lunes a jueves 09:00 a 17:00 · Viernes 09:00 a 15:00</p></div>
+    <div><h3 class="mb-3 text-xs font-bold uppercase tracking-[.1em] text-white">Empresas</h3>
+      <p><a class="hover:text-white" href="../../familia-c/suat/">SUAT</a></p><p class="mt-1"><a class="hover:text-white" href="../../familia-c/tresur/">Tresur</a></p><p class="mt-1"><a class="hover:text-white" href="../../familia-c/maquinfra/">Maquinfra</a></p><p class="mt-1"><a class="hover:text-white" href="../../familia-c/maxilimpio/">Maxilimpio</a></p><p class="mt-1"><a class="hover:text-white" href="../../familia-c/captotal-ceducap/">Captotal y Ceducap</a></p></div>
+  </div>
+  <div class="border-t border-white/10 px-4 py-5 text-center text-xs text-slate-500">© Grupo VL · Propuesta D: maqueta de diseño con datos publicados hoy por el grupo. Lo marcado "Ejemplo" o "Por confirmar" debe validarse antes de publicar.</div>
+</footer>
+
+<div id="aviso" role="status" class="pointer-events-none fixed bottom-6 left-1/2 z-[60] max-w-[calc(100%-2rem)] -translate-x-1/2 translate-y-3 rounded-xl bg-slate-900 px-4 py-3 text-sm text-white opacity-0 shadow-xl transition"></div>
+
+<script src="componentes/chile-regiones.js"></script>
+<script src="componentes/clientes.js"></script>
+<script src="componentes/mapa-chile.js"></script>
+<script src="componentes/carrusel-clientes.js"></script>
+<script>
+/* Interacciones de la página (los dos componentes grandes viven en sus propios archivos). */
+(function () {
+  'use strict';
+  var $ = function (s) { return document.querySelector(s); };
+
+  /* Encabezado: gana borde y sombra al bajar */
+  var enc = $('#encabezado');
+  function pos() { enc.classList.toggle('border-slate-200', window.scrollY > 8); enc.classList.toggle('shadow-md', window.scrollY > 8); }
+  window.addEventListener('scroll', pos, { passive: true }); pos();
+
+  /* Menú móvil */
+  var burger = $('#burger'), movil = $('#menu-movil');
+  burger.addEventListener('click', function () {
+    var abierto = movil.classList.toggle('hidden') === false;
+    burger.setAttribute('aria-expanded', String(abierto));
+    burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+  });
+  [].forEach.call(movil.querySelectorAll('a'), function (a) { a.addEventListener('click', function () { movil.classList.add('hidden'); burger.setAttribute('aria-expanded', 'false'); }); });
+
+  /* Aviso flotante (video de muestra) */
+  var aviso = $('#aviso'), tAviso = 0;
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-aviso]');
+    if (!b) return;
+    aviso.textContent = b.getAttribute('data-aviso');
+    aviso.classList.remove('opacity-0', 'translate-y-3');
+    clearTimeout(tAviso);
+    tAviso = setTimeout(function () { aviso.classList.add('opacity-0', 'translate-y-3'); }, 3200);
+  });
+
+  /* Contadores: el número final ya está en el HTML; solo se anima una vez al entrar en pantalla.
+     Con "reducir movimiento" no se anima. */
+  var reducir = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reducir && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        var el = en.target, meta = +el.dataset.contar, pre = el.dataset.prefijo || '', t0 = performance.now(), dur = 1300;
+        (function paso(t) {
+          var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+          el.textContent = pre + Math.round(meta * e).toLocaleString('es-CL');
+          if (p < 1) requestAnimationFrame(paso);
+        })(t0);
+      });
+    }, { threshold: 0.5 });
+    [].forEach.call(document.querySelectorAll('[data-contar]'), function (el) { io.observe(el); });
+  }
+
+  /* Formulario: modo Cotización / Licitación */
+  var form = $('#formulario'), tabs = [].slice.call(form.querySelectorAll('[role=tab]')), camposLic = $('#campos-licitacion'), textoEnviar = $('#enviar-texto');
+  function modo(m) {
+    var lic = m === 'licitacion';
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.modo === m)); });
+    camposLic.classList.toggle('hidden', !lic);
+    camposLic.classList.toggle('grid', lic);
+    textoEnviar.textContent = lic ? 'Solicitar propuesta' : 'Solicitar cotización';
+    $('#resultado').textContent = '';
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { modo(t.dataset.modo); }); });
+
+  /* Píldoras: resumen vivo de lo seleccionado */
+  var pildoras = [].slice.call(form.querySelectorAll('input[name=servicio]')), resumen = $('#resumen');
+  function actualizarResumen() {
+    var n = pildoras.filter(function (p) { return p.checked; }).map(function (p) { return p.value; });
+    if (!n.length) resumen.textContent = 'Ningún servicio seleccionado.';
+    else if (n.length === 1) resumen.textContent = '1 servicio seleccionado: ' + n[0] + '.';
+    else resumen.textContent = n.length + ' servicios seleccionados. Recibirás una sola propuesta aunque participen varias empresas del grupo.';
+  }
+  pildoras.forEach(function (p) { p.addEventListener('change', actualizarResumen); });
+
+  /* La tarjeta "Cotizar otros servicios" deja el formulario listo para elegir varios */
+  [].forEach.call(document.querySelectorAll('[data-servicios="todos"]'), function (a) {
+    a.addEventListener('click', function () { setTimeout(function () { var p = pildoras[0]; if (p) p.focus({ preventScroll: true }); }, 400); });
+  });
+
+  /* Zona para adjuntar las bases: muestra el nombre y reacciona al arrastrar */
+  var zona = $('#zona-bases'), input = $('#f-bases'), nombre = $('#nombre-archivo');
+  input.addEventListener('change', function () { nombre.textContent = input.files.length ? 'Adjunto: ' + input.files[0].name : 'Arrastra las bases aquí o haz clic para adjuntarlas'; });
+  ['dragenter', 'dragover'].forEach(function (ev) { zona.addEventListener(ev, function () { zona.classList.add('border-brand-600', 'bg-brand-50'); }); });
+  ['dragleave', 'drop'].forEach(function (ev) { zona.addEventListener(ev, function () { zona.classList.remove('border-brand-600', 'bg-brand-50'); }); });
+
+  /* Envío de muestra: no manda nada */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    $('#resultado').textContent = 'Muestra: en el sitio real la solicitud llegaría a ' + form.dataset.mail + '.';
+  });
+})();
+</script>
+</body>
+</html>
