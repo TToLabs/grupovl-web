@@ -19,9 +19,12 @@
   --cmap-ink: #0f172a;
   --cmap-muted: #5b6678;
   --cmap-line: #e2e8f0;
-  display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 28px; align-items: start;
+  display: grid; gap: 20px;   /* mapa horizontal a todo el ancho; detalle y selector debajo */
 }
-@media (max-width: 820px) { .cmap { grid-template-columns: 1fr; } }
+.cmap__lateral { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 20px 28px; align-items: start; }
+.cmap__lateral > .cmap__panel { grid-row: span 2; }
+.cmap__lateral > .cmap__chips { margin-top: 0; }
+@media (max-width: 820px) { .cmap__lateral { grid-template-columns: 1fr; } .cmap__lateral > .cmap__panel { grid-row: auto; } }
 
 /* ---- Escenario ---- */
 .cmap > * { min-width: 0; }   /* nada dentro del mapa puede ensanchar la columna */
@@ -30,30 +33,32 @@
   position: relative; background: linear-gradient(180deg, #f7f9fc, #eef2f8);
   border: 1px solid var(--cmap-line); border-radius: 20px; padding: 16px;
 }
-.cmap__svg { display: block; width: 100%; height: auto; max-height: 620px; margin-inline: auto; overflow: visible; }
-@media (max-width: 820px) { .cmap__svg { max-height: 520px; max-width: 300px; } }
+/* En pantallas angostas el país se desliza de lado: a proporción real no cabe legible en 375 px */
+.cmap__scroll { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+.cmap__svg { display: block; width: 100%; height: auto; overflow: visible; }
+@media (max-width: 820px) { .cmap__svg { min-width: 760px; } }
 
-.cmap__reg { stroke: #fff; stroke-width: 1.2; stroke-linejoin: round; transition: fill .25s, filter .25s; outline: none; }
+.cmap__reg { stroke: #fff; stroke-width: .7; stroke-linejoin: round; transition: fill .25s, filter .25s; outline: none; }
 .cmap__reg--sin { fill: var(--cmap-sin); pointer-events: none; }
 .cmap__reg--confirmada { fill: var(--cmap-acc); cursor: pointer; }
-.cmap__reg--ejemplo { fill: url(#cmap-trama); stroke: var(--cmap-ejemplo); stroke-width: 1.4; cursor: pointer; }
+.cmap__reg--ejemplo { fill: url(#cmap-trama); stroke: var(--cmap-ejemplo); stroke-width: .8; cursor: pointer; }
 .cmap__reg--confirmada:hover, .cmap__reg--confirmada.is-hover { fill: var(--cmap-acc-claro); }
 .cmap__reg--ejemplo:hover, .cmap__reg--ejemplo.is-hover { filter: brightness(.97) saturate(1.2); }
-.cmap__reg:focus-visible { stroke: var(--cmap-ink); stroke-width: 2.4; }
+.cmap__reg:focus-visible { stroke: var(--cmap-ink); stroke-width: 1.4; }
 
 /* Capa superior con la región seleccionada */
-.cmap__sel { fill: none; stroke: var(--cmap-ink); stroke-width: 2.4; stroke-linejoin: round; pointer-events: none; filter: drop-shadow(0 4px 6px rgba(15, 23, 42, .35)); }
+.cmap__sel { fill: none; stroke: var(--cmap-ink); stroke-width: 1.4; stroke-linejoin: round; pointer-events: none; filter: drop-shadow(0 4px 6px rgba(15, 23, 42, .35)); }
 
 /* Entrada escalonada: hasta que el mapa aparece en pantalla, las regiones esperan ocultas (el SVG lo crea JS, así que sin JS no hay mapa que ocultar) */
 .cmap:not(.is-listo) .cmap__reg { opacity: 0; }
 .cmap.is-listo .cmap__reg { animation: cmap-entra .6s both cubic-bezier(.2,.8,.2,1); animation-delay: calc(var(--i) * 55ms); }
-@keyframes cmap-entra { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes cmap-entra { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
 
 /* Casa matriz */
-.cmap__pin { fill: #fff; stroke: var(--cmap-ink); stroke-width: 2.4; pointer-events: none; }
-.cmap__pulso { fill: none; stroke: var(--cmap-ink); stroke-width: 1.6; opacity: 0; transform-box: fill-box; transform-origin: center; animation: cmap-pulso 2.4s infinite ease-out; pointer-events: none; }
+.cmap__pin { fill: #fff; stroke: var(--cmap-ink); stroke-width: 1.6; pointer-events: none; }
+.cmap__pulso { fill: none; stroke: var(--cmap-ink); stroke-width: 1; opacity: 0; transform-box: fill-box; transform-origin: center; animation: cmap-pulso 2.4s infinite ease-out; pointer-events: none; }
 @keyframes cmap-pulso { 0% { transform: scale(.6); opacity: .7; } 100% { transform: scale(2.6); opacity: 0; } }
-.cmap__etiqueta { font: 700 20px Inter, system-ui, sans-serif; fill: var(--cmap-ink); paint-order: stroke; stroke: #f3f6fb; stroke-width: 6px; stroke-linejoin: round; pointer-events: none; }
+.cmap__etiqueta { font: 700 10px Inter, system-ui, sans-serif; fill: var(--cmap-ink); paint-order: stroke; stroke: #f3f6fb; stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
 
 /* ---- Tooltip flotante ---- */
 .cmap__tip {

@@ -17,7 +17,7 @@
  * Accesibilidad
  * -------------
  * - Las regiones interactivas son botones (role="button", aria-pressed, aria-label con su estado) y se recorren con Tab.
- * - Flechas: pasan de una región a la siguiente en sentido norte-sur. Enter o espacio seleccionan. Escape vuelve a la matriz.
+ * - Flechas: pasan de una región a la siguiente en sentido norte-sur (izquierda a derecha). Enter o espacio seleccionan. Escape vuelve a la matriz.
  * - El panel es aria-live="polite": el lector de pantalla anuncia la región elegida.
  */
 (function () {
@@ -34,14 +34,14 @@
       estado: 'confirmada',
       texto: 'Aquí está la casa matriz del grupo, en Santiago.',
       clientes: [
-        'Municipalidades de Renca, Cerro Navia, Lo Espejo, Lampa, Independencia, Pudahuel, Quilicura y San Bernardo',
+        'Municipalidades de Santiago, Renca, Cerro Navia, Lo Espejo, Lampa, Independencia, Pudahuel, Quilicura, Recoleta, Cerrillos y San Bernardo',
         'Hospitales San Borja Arriarán y El Pino',
         'Universidad Diego Portales y Universidad de los Andes'
       ],
       hq: {
         direccion: 'Arturo Prat 1370, Santiago',
         telefono: '+56 2 2363 5000',
-        horario: 'Lunes a jueves 09:00 a 17:00 · Viernes 09:00 a 15:00',
+        horario: 'Por confirmar con Grupo VL',
         correo: 'comercial@grupovl.cl'
       },
       tip: 'Casa matriz · Arturo Prat 1370'
@@ -50,10 +50,11 @@
     ohiggins: { estado: 'confirmada', texto: 'Clientes del grupo visibles hoy en esta región.', clientes: ['Municipalidades de Machalí, Requínoa y Olivar'] },
     maule: { estado: 'confirmada', texto: 'Clientes del grupo visibles hoy en esta región.', clientes: ['Universidad de Talca'] },
     biobio: { estado: 'confirmada', texto: 'Clientes del grupo visibles hoy en esta región.', clientes: ['Municipalidad de Concepción'] },
-    // Las tres regiones de ejemplo completan las 8 que declara la web actual. Grupo VL debe confirmar cuáles son.
-    coquimbo: { estado: 'ejemplo', texto: 'Región de ejemplo: la presencia del grupo aquí debe confirmarse antes de publicar.' },
-    araucania: { estado: 'ejemplo', texto: 'Región de ejemplo: la presencia del grupo aquí debe confirmarse antes de publicar.' },
-    loslagos: { estado: 'ejemplo', texto: 'Región de ejemplo: la presencia del grupo aquí debe confirmarse antes de publicar.' }
+    // La web declara 8 regiones "desde la II Región hasta la Región del Bío Bío" (grupovl.cl/nosotros).
+    // Estas tres, dentro de ese rango, completan las 8. Grupo VL debe confirmar cuáles son.
+    antofagasta: { estado: 'ejemplo', texto: 'La web del grupo declara presencia desde la II Región. Clientes por confirmar antes de publicar.' },
+    coquimbo: { estado: 'ejemplo', texto: 'Región de ejemplo dentro de la cobertura declarada (II Región a Biobío). Debe confirmarse antes de publicar.' },
+    nuble: { estado: 'ejemplo', texto: 'Región de ejemplo dentro de la cobertura declarada (II Región a Biobío). Debe confirmarse antes de publicar.' }
   };
   var INICIAL = 'rm';
 
@@ -66,7 +67,7 @@
 
   function Mapa(raiz, mapa) {
     var $ = function (s) { return raiz.querySelector('[data-cmap="' + s + '"]'); };
-    var svg = $('svg'), escenario = svg.parentNode, tip = $('tip'), panel = $('panel'), contChips = $('chips');
+    var svg = $('svg'), escenario = raiz.querySelector('.cmap__escenario'), tip = $('tip'), panel = $('panel'), contChips = $('chips');
     var campos = { estado: $('estado'), titulo: $('titulo'), texto: $('texto'), clientes: $('clientes'), hq: $('hq') };
 
     var porId = {}, interactivas = [], seleccionada = null, ocultarTip = 0;
@@ -76,9 +77,9 @@
 
     // Trama diagonal para las regiones de ejemplo (se distinguen sin depender solo del color)
     var defs = crear('defs', {}, svg);
-    var trama = crear('pattern', { id: 'cmap-trama', width: 9, height: 9, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, defs);
-    crear('rect', { width: 9, height: 9, fill: '#fff3d6' }, trama);
-    crear('rect', { width: 4, height: 9, fill: '#e8a100', opacity: '.55' }, trama);
+    var trama = crear('pattern', { id: 'cmap-trama', width: 5, height: 5, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, defs);
+    crear('rect', { width: 5, height: 5, fill: '#fff3d6' }, trama);
+    crear('rect', { width: 2.2, height: 5, fill: '#e8a100', opacity: '.55' }, trama);
 
     var capaRegiones = crear('g', {}, svg);
     mapa.regiones.forEach(function (r, i) {
@@ -108,10 +109,10 @@
     // Casa matriz
     var hq = crear('g', {}, svg);
     var sx = mapa.santiago[0], sy = mapa.santiago[1];
-    // Tamaños en unidades del mapa (495 de ancho): en el teléfono el mapa se ve a ~60 %, por eso el texto es grande
-    crear('circle', { class: 'cmap__pulso', cx: sx, cy: sy, r: 9 }, hq);
-    crear('circle', { class: 'cmap__pin', cx: sx, cy: sy, r: 7.5 }, hq);
-    var etiqueta = crear('text', { class: 'cmap__etiqueta', x: sx + 17, y: sy + 7 }, hq);
+    // Tamaños en unidades del mapa horizontal (822 de ancho); la etiqueta va sobre el pin, hacia la cordillera
+    crear('circle', { class: 'cmap__pulso', cx: sx, cy: sy, r: 4.5 }, hq);
+    crear('circle', { class: 'cmap__pin', cx: sx, cy: sy, r: 3.6 }, hq);
+    var etiqueta = crear('text', { class: 'cmap__etiqueta', x: sx, y: sy - 10, 'text-anchor': 'middle' }, hq);
     etiqueta.textContent = 'Casa matriz';
 
     /* ---------- Selector alternativo ---------- */
@@ -134,13 +135,17 @@
       tip.textContent = '';
       tip.appendChild(s1); tip.appendChild(s2);
       tip.hidden = false;
-      // Posición: a la derecha de la región; si no cabe, a la izquierda. Siempre dentro del escenario.
+      // Posición: centrado sobre la región; si no cabe arriba, debajo. Siempre dentro del escenario.
       var e = escenario.getBoundingClientRect(), r = reg.el.getBoundingClientRect();
       var w = tip.offsetWidth, h = tip.offsetHeight;
-      var x = r.right - e.left + 10;
-      if (x + w > e.width - 8) x = r.left - e.left - w - 10;
-      x = Math.max(8, Math.min(x, e.width - w - 8));
-      var y = Math.max(8, Math.min(r.top - e.top + r.height / 2 - h / 2, e.height - h - 8));
+      var x = Math.max(8, Math.min(r.left - e.left + r.width / 2 - w / 2, e.width - w - 8));
+      var y = r.top - e.top - h - 8;
+      if (y < 8) y = r.bottom - e.top + 8;
+      if (y + h > e.height - 8) {   // región alta: no cabe arriba ni abajo, va al costado (derecha o izquierda)
+        y = Math.max(8, Math.min(r.top - e.top + r.height / 2 - h / 2, e.height - h - 8));
+        x = r.right - e.left + 10;
+        if (x + w > e.width - 8) x = Math.max(8, r.left - e.left - w - 10);
+      }
       tip.style.left = x + 'px';
       tip.style.top = y + 'px';
     }
@@ -160,6 +165,12 @@
         r.chip.setAttribute('aria-pressed', String(activa));
       });
       contorno.setAttribute('d', mapa.regiones.filter(function (x) { return x.id === id; })[0].d);
+      // En el teléfono el país se desliza de lado: se centra la región elegida
+      var sc = svg.parentNode;
+      if (sc.scrollWidth > sc.clientWidth) {
+        var rr = reg.el.getBoundingClientRect(), sr = sc.getBoundingClientRect();
+        sc.scrollLeft += rr.left + rr.width / 2 - (sr.left + sr.width / 2);
+      }
 
       var d = reg.datos;
       campos.estado.className = 'cmap__estado cmap__estado--' + reg.estado;
