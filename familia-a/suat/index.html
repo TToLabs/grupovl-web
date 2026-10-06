@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Muestra web SUAT</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+
+/* Concepto: dos marcos de navegador, el actual anotado y el propuesto, sobre una mesa de trabajo neutra. Colores de marca tomados del logo de SUAT. */
+:root{
+  --bg:#EEF0F4; --fg:#16202E; --muted:#56647A; --line:#CBD2DE; --panel:#FFFFFF; --accent:#1B3A8C; --alert:#C21F2D; --chip:#E3E8F2;
+  --site-bg:#FFFFFF; --site-alt:#F2F5FA; --site-fg:#14213D; --site-muted:#56647A; --site-line:#DCE2EC; --navy:#1B3A8C; --navy-deep:#0E2259; --red:#D3202F;
+  --display:'Archivo','Arial Narrow',Arial,sans-serif; --body:'Public Sans',Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1623;--fg:#E6EBF5;--muted:#9AA8C0;--line:#2A3650;--panel:#172033;--accent:#8FA9F0;--alert:#FF8A93;--chip:#222E47;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1623;--fg:#E6EBF5;--muted:#9AA8C0;--line:#2A3650;--panel:#172033;--accent:#8FA9F0;--alert:#FF8A93;--chip:#222E47;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;padding-inline:16px}
+.wrap{max-width:1160px;margin-inline:auto;padding-block:28px 56px;display:flex;flex-direction:column;gap:24px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;text-wrap:balance}
+header.top{display:flex;flex-wrap:wrap;gap:16px;align-items:end;justify-content:space-between}
+header.top h1{font-size:clamp(28px,4vw,40px);font-weight:800}
+header.top p{margin:6px 0 0;color:var(--muted);max-width:60ch}
+.tabs{display:inline-flex;background:var(--chip);border-radius:10px;padding:4px;gap:4px}
+.tabs button{font:600 15px var(--body);border:0;background:transparent;color:var(--muted);padding:10px 18px;border-radius:8px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--panel);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.tabs button:focus-visible,a:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.frame{background:var(--site-bg);color:var(--site-fg);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(10,20,40,.14)}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#E8ECF3;border-bottom:1px solid var(--site-line)}
+.bar i{width:11px;height:11px;border-radius:50%;background:#C3CBD9;display:block}
+.bar span{margin-left:10px;font:500 13px var(--body);color:#56647A;background:#fff;border-radius:6px;padding:4px 12px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site{font-size:15px}
+.site a{color:inherit;text-decoration:none}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding:12px 28px;border-bottom:1px solid var(--site-line);background:#fff}
+.nav img{height:44px;width:auto;display:block}
+.nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 0 auto;padding:0;font:700 12.5px var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--navy-deep)}
+.btn{display:inline-block;font:700 13px var(--display);letter-spacing:.05em;text-transform:uppercase;padding:11px 20px;border-radius:6px;border:2px solid transparent;cursor:pointer}
+.btn.red{background:var(--red);color:#fff}
+.btn.navy{background:var(--navy);color:#fff}
+.btn.line{border-color:var(--navy);color:var(--navy);background:transparent}
+.btn.white{background:#fff;color:var(--navy-deep)}
+.hero{position:relative;min-height:340px;display:flex;align-items:center;color:#fff;background:#0E2259 center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,50,.86),rgba(10,20,50,.35))}
+.hero .in{position:relative;padding:44px 28px;max-width:640px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.hero h2{font-size:clamp(26px,4vw,42px);font-weight:800}
+.hero p{margin:0;font-size:17px;max-width:52ch;color:#E6ECFA}
+.dots{display:flex;gap:7px;position:absolute;bottom:14px;left:50%;transform:translateX(-50%)}
+.dots b{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.5)}.dots b:first-child{background:#fff}
+section.s{padding:36px 28px;display:flex;flex-direction:column;gap:20px}
+section.s.alt{background:var(--site-alt)}
+.s h3{font-size:clamp(22px,3vw,28px);font-weight:800;color:var(--navy-deep)}
+.s .lead{margin:0;color:var(--site-muted);max-width:68ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--site-line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card img.ph{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.card .b{padding:14px 16px 18px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.card h4{font:700 17px var(--display);margin:0;color:var(--navy-deep)}
+.card p{margin:0;font-size:14px;color:var(--site-muted)}
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.logos div{background:#fff;border:1px solid var(--site-line);border-radius:8px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;text-align:center;font-size:12.5px;color:var(--site-fg)}
+.logos img{width:100%;max-width:110px;aspect-ratio:1;object-fit:contain;display:block}
+.foot{background:var(--navy-deep);color:#D9E2F7;padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;font-size:14px}
+.foot h5{font:700 13px var(--display);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px;color:#fff}
+.foot p{margin:0 0 4px}.foot a{text-decoration:underline}
+.pin{position:absolute;z-index:2;width:26px;height:26px;border-radius:50%;background:var(--alert);color:#fff;font:700 13px var(--display);display:grid;place-items:center;box-shadow:0 0 0 3px rgba(255,255,255,.85)}
+.rel{position:relative}
+.legend{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.legend h2{font-size:20px;font-weight:800}
+.legend ol{margin:0;padding:0;list-style:none;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.legend li{display:flex;gap:12px;align-items:flex-start;min-width:0}
+.legend li b.n{flex:none;width:24px;height:24px;border-radius:50%;background:var(--alert);color:#fff;font:700 12px var(--display);display:grid;place-items:center;margin-top:2px}
+.legend li span{color:var(--muted);font-size:14.5px}.legend li strong{display:block;color:var(--fg);font-size:15px}
+.tag{display:inline-block;font:600 12px var(--body);background:var(--chip);color:var(--muted);padding:3px 9px;border-radius:99px}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;background:var(--navy-deep);color:#fff}
+.trust div{padding:16px 20px;display:flex;gap:12px;align-items:center;border-right:1px solid rgba(255,255,255,.14);font-size:14px}
+.trust img{height:52px;width:auto;display:block}
+.trust strong{display:block;font:800 18px var(--display)}
+.seg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.seg .card .b{gap:10px}
+.mini{display:flex;flex-wrap:wrap;gap:8px}
+.mini img{width:54px;height:54px;object-fit:contain;border:1px solid var(--site-line);border-radius:6px;background:#fff}
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:0;background:#fff;border:1px solid var(--site-line);border-radius:10px;overflow:hidden}
+.case img{width:100%;height:100%;object-fit:cover;display:block;min-height:220px}
+.case .b{padding:22px;display:flex;flex-direction:column;gap:10px}
+.case blockquote{margin:0;font-size:15px;color:var(--site-muted);border-left:3px solid var(--red);padding-left:12px}
+.ph-note{color:#9A5B00;background:#FFF3DC;border-radius:4px;padding:1px 6px;font-weight:600}
+form.q{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;background:#fff;border:1px solid var(--site-line);border-radius:10px;padding:20px}
+form.q label{display:flex;flex-direction:column;gap:4px;font:600 13px var(--body);color:var(--site-fg);min-width:0}
+form.q input,form.q select,form.q textarea{font:400 15px var(--body);padding:10px 12px;border:1px solid #B9C3D6;border-radius:6px;background:#fff;color:#14213D;min-width:0;width:100%}
+form.q .full{grid-column:1/-1}
+.ok{color:#0B6B3A;font-weight:600;font-size:14px;min-height:20px}
+.jobs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.jobs ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.jobs li{background:#fff;border:1px solid var(--site-line);border-radius:99px;padding:7px 14px;font-size:14px;font-weight:600;color:var(--navy-deep)}
+.changes{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.changes h2{font-size:20px;font-weight:800;margin-bottom:10px}
+.changes ul{margin:0;padding-left:20px;display:grid;gap:6px;color:var(--muted);font-size:15px}.changes strong{color:var(--fg)}
+@media (max-width:720px){.case,.jobs{grid-template-columns:1fr}.nav ul{margin-left:0}.pin{width:22px;height:22px;font-size:11px}}
+[hidden]{display:none!important}
+</style>
+</head><body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Muestra web SUAT</h1>
+      <p>La página de inicio de suat.cl como es hoy y como podría ser, con las mismas imágenes del sitio actual. Es una maqueta: los textos nuevos usan datos que SUAT ya publica.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Versión de la muestra">
+      <button role="tab" id="t-antes" aria-selected="true" aria-controls="p-antes">Como es hoy</button>
+      <button role="tab" id="t-despues" aria-selected="false" aria-controls="p-despues">Como podría ser</button>
+    </div>
+  </header>
+
+  <!-- ========== COMO ES ========== -->
+  <div id="p-antes" role="tabpanel" aria-labelledby="t-antes" style="display:flex;flex-direction:column;gap:24px">
+    <div class="frame">
+      <div class="bar"><i></i><i></i><i></i><span>suat.cl · Recreación de la página actual</span></div>
+      <div class="site">
+        <div class="nav">
+          <img src="img/logo.png" alt="SUAT Seguridad Total">
+          <ul><li>Nosotros</li><li>Servicios</li><li>Muro SGI</li><li>Noticias</li><li>Contacto</li></ul>
+          <a class="btn red" href="#" onclick="return false">Cotizar</a>
+        </div>
+        <div class="hero rel" style="background-image:url(img/hero-rrhh.jpg)">
+          <span class="pin" style="top:14px;left:14px">1</span>
+          <div class="in">
+            <h2>SEGURIDAD DE<br>RECURSOS HUMANOS</h2>
+            <a class="btn white" href="#" onclick="return false">Conoce más</a>
+          </div>
+          <span class="pin" style="top:14px;right:14px">2</span>
+          <div class="dots"><b></b><b></b><b></b><b></b></div>
+        </div>
+        <section class="s">
+          <h3>Línea de productos</h3>
+          <div class="cards">
+            <div class="card"><img class="ph" src="img/hero-rrhh.jpg" alt="Guardia en acceso de un hospital"><div class="b"><h4>Seguridad de Recursos Humanos</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div>
+            <div class="card"><img class="ph" src="img/hero-tec.jpg" alt="Operador frente a pantallas de cámaras"><div class="b"><h4>Seguridad Tecnológica</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div>
+            <div class="card"><img class="ph" src="img/hero-acceso.jpg" alt="Torniquetes de control de acceso"><div class="b"><h4>Control de Acceso y Recepción</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div>
+            <div class="card"><img class="ph" src="img/hero-consultoria.jpg" alt="Análisis en un computador"><div class="b"><h4>Consultoría de Seguridad y Análisis de Riesgos</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div>
+          </div>
+        </section>
+        <section class="s alt rel">
+          <span class="pin" style="top:14px;right:14px">3</span>
+          <h3>Nuestros clientes</h3>
+          <div class="logos">
+            <div><img src="img/c1.png" alt=""></div><div><img src="img/c2.png" alt=""></div><div><img src="img/c3.jpg" alt=""></div><div><img src="img/c4.jpg" alt=""></div><div><img src="img/c5.png" alt=""></div>
+            <div><img src="img/c6.png" alt=""></div><div><img src="img/c7.png" alt=""></div><div><img src="img/c8.jpg" alt=""></div><div><img src="img/c9.jpeg" alt=""></div><div><img src="img/c10.jpg" alt=""></div>
+          </div>
+        </section>
+        <div class="foot rel">
+          <span class="pin" style="top:10px;right:14px">4</span>
+          <div><h5>Datos importantes</h5><p>Arturo Prat #1370, Santiago, Chile</p><p>Lunes a jueves de 09:00 a 17:00 hrs.</p><p>Viernes de 09:00 a 15:00 hrs.</p></div>
+          <div><h5>Datos de contacto</h5><p>comercial@suat.cl</p><p>+56 2 2363 5000</p></div>
+          <div><h5>Proceso administrativo de certificación Applus</h5><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p></div>
+          <div class="rel"><span class="pin" style="top:-4px;right:0">5</span><h5>Enlaces</h5><p><a href="#" onclick="return false">Trabaja con nosotros</a></p><p><a href="#" onclick="return false">Políticas de Gestión</a></p><p>© SUAT - Seguridad Total | Diseño web por Lado Norte</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <h2>Qué se ve y por qué importa</h2>
+      <ol>
+        <li><b class="n">1</b><div><strong>La portada no dice qué ofrece ni para quién</strong><span>Solo el nombre de un servicio y "Conoce más". Un comprador no ve la razón para elegir a SUAT.</span></div></li>
+        <li><b class="n">2</b><div><strong>Cotizar lleva a una página de contacto general</strong><span>No hay un formulario corto en la portada ni se pregunta qué servicio necesita el cliente.</span></div></li>
+        <li><b class="n">3</b><div><strong>Clientes como logos, sin nombre ni contexto</strong><span>Hay 10 logos de hospitales, municipios y organismos públicos, pero sin nombre, año ni resultado.</span></div></li>
+        <li><b class="n">4</b><div><strong>Texto de relleno en el pie de página</strong><span>El párrafo de la certificación Applus es un "Lorem ipsum" sin reemplazar.</span></div></li>
+        <li><b class="n">5</b><div><strong>Políticas de Gestión apunta a un sitio de pruebas</strong><span>El enlace va a suat.maqueta.com.es, no a suat.cl. Empleo es solo un enlace de texto al final de la página.</span></div></li>
+      </ol>
+      <span class="tag">Recreación basada en suat.cl del 5 de octubre de 2026, con sus propias imágenes.</span>
+    </div>
+  </div>
+
+  <!-- ========== COMO PODRIA SER ========== -->
+  <div id="p-despues" role="tabpanel" aria-labelledby="t-despues" hidden style="flex-direction:column;gap:24px">
+    <div class="frame">
+      <div class="bar"><i></i><i></i><i></i><span>suat.cl · Propuesta</span></div>
+      <div class="site">
+        <div class="nav">
+          <img src="img/logo.png" alt="SUAT Seguridad Total">
+          <ul><li>Servicios</li><li>Clientes</li><li>Certificaciones</li><li>Noticias</li><li>Contacto</li></ul>
+          <a class="btn line" href="#empleo" onclick="return false">Trabaja con nosotros</a>
+          <a class="btn red" href="#cotizar" onclick="return false">Cotizar</a>
+        </div>
+        <div class="hero" style="background-image:url(img/hero-rrhh.jpg)">
+          <div class="in">
+            <h2>Seguridad privada para hospitales, instituciones públicas e industria</h2>
+            <p>Guardias capacitados bajo la norma OS10 de Carabineros, con supervisión en terreno y apoyo tecnológico cuando el cliente lo necesita.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn red" href="#" onclick="return false">Cotizar seguridad</a><a class="btn white" href="#" onclick="return false">Ver clientes</a></div>
+          </div>
+        </div>
+        <div class="trust">
+          <div><img src="img/veinte.png" alt="20 años junto a ti" style="background:var(--navy);border-radius:6px;padding:2px"><span><strong>20 años</strong>junto a ti</span></div>
+          <div><span><strong>Autorización Nº 0502</strong>Carabineros de Chile, DS 93 de 1985</span></div>
+          <div><img src="img/applus.png" alt="Sello Applus ISO 9001, 14001 y 45001" style="background:#fff;border-radius:6px;padding:3px"><span><strong>ISO 9001 · 14001 · 45001</strong>Certificación Applus</span></div>
+        </div>
+        <section class="s">
+          <h3>Seguridad según el tipo de cliente</h3>
+          <p class="lead">Cada servicio se explica con el cliente en mente, no solo con el nombre del producto.</p>
+          <div class="seg">
+            <div class="card"><div class="b"><h4>SUAT Hospitalaria</h4><p>Control de accesos y vigilancia en recintos de salud.</p><div class="mini"><img src="img/c6.png" alt="Hospital San Juan de Dios"><img src="img/c8.jpg" alt="Hospital San José"><img src="img/c2.png" alt="Complejo Asistencial Barros Luco"></div></div></div>
+            <div class="card"><div class="b"><h4>SUAT Gubernamental</h4><p>Servicio para organismos del Estado.</p><div class="mini"><img src="img/c4.jpg" alt="Subsecretaría del Interior"><img src="img/c3.jpg" alt="Servicio Nacional del Patrimonio Cultural"></div></div></div>
+            <div class="card"><div class="b"><h4>SUAT Público</h4><p>Vigilancia para municipios.</p><div class="mini"><img src="img/c1.png" alt="Municipalidad de Renca"><img src="img/c5.png" alt="Municipalidad de Quilicura"><img src="img/c7.png" alt="Municipalidad de Independencia"><img src="img/c10.jpg" alt="Municipalidad de San Bernardo"></div></div></div>
+            <div class="card"><div class="b"><h4>SUAT Privada e Industrial</h4><p>Construcción e instalaciones industriales.</p><div class="mini"><img src="img/c9.jpeg" alt="Besalco Construcciones"></div></div></div>
+          </div>
+          <span class="tag">Los clientes por segmento son un ejemplo. SUAT confirma cuáles autoriza mostrar.</span>
+        </section>
+        <section class="s alt">
+          <h3>Nuestros servicios</h3>
+          <div class="cards">
+            <div class="card"><img class="ph" src="img/hero-rrhh.jpg" alt="Guardia en acceso de un hospital"><div class="b"><h4>Seguridad de Recursos Humanos</h4><p>Guardias, supervisores y coordinadores OS10.</p><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div>
+            <div class="card"><img class="ph" src="img/hero-tec.jpg" alt="Operador frente a pantallas de cámaras"><div class="b"><h4>Seguridad Tecnológica</h4><p>Monitoreo y cámaras integradas a la vigilancia.</p><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div>
+            <div class="card"><img class="ph" src="img/hero-acceso.jpg" alt="Torniquetes de control de acceso"><div class="b"><h4>Control de Acceso y Recepción</h4><p>Ingreso ordenado a edificios e instituciones.</p><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div>
+            <div class="card"><img class="ph" src="img/hero-consultoria.jpg" alt="Análisis en un computador"><div class="b"><h4>Consultoría y Análisis de Riesgos</h4><p>Prevención de amenazas antes de que ocurran.</p><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div>
+          </div>
+        </section>
+        <section class="s">
+          <h3>Clientes que confían en SUAT</h3>
+          <div class="logos">
+            <div><img src="img/c6.png" alt="">Hospital San Juan de Dios</div>
+            <div><img src="img/c8.jpg" alt="">Hospital San José</div>
+            <div><img src="img/c2.png" alt="">Complejo Asistencial Barros Luco</div>
+            <div><img src="img/c4.jpg" alt="">Subsecretaría del Interior</div>
+            <div><img src="img/c3.jpg" alt="">Servicio Nacional del Patrimonio Cultural</div>
+            <div><img src="img/c1.png" alt="">Municipalidad de Renca</div>
+            <div><img src="img/c5.png" alt="">Municipalidad de Quilicura</div>
+            <div><img src="img/c7.png" alt="">Municipalidad de Independencia</div>
+            <div><img src="img/c10.jpg" alt="">Municipalidad de San Bernardo</div>
+            <div><img src="img/c9.jpeg" alt="">Besalco Construcciones</div>
+          </div>
+          <div class="case">
+            <img src="img/hero-rrhh.jpg" alt="Guardia de SUAT en un recinto de salud">
+            <div class="b">
+              <span class="tag" style="align-self:flex-start">Caso de éxito · formato de ejemplo</span>
+              <h4 style="font:800 22px var(--display);color:var(--navy-deep);margin:0">Hospital San Juan de Dios</h4>
+              <p style="margin:0;color:var(--site-muted)">Qué necesitaba el cliente, qué hizo SUAT y qué resultado se logró.</p>
+              <blockquote><span class="ph-note">Completar con datos reales y autorización del cliente</span></blockquote>
+            </div>
+          </div>
+        </section>
+        <section class="s alt" id="cotizar">
+          <h3>Solicita tu cotización</h3>
+          <p class="lead">Un formulario corto en la portada. La solicitud llega a comercial@suat.cl con el servicio elegido.</p>
+          <form class="q" id="fq">
+            <label for="q-nom">Nombre<input id="q-nom" autocomplete="name"></label>
+            <label for="q-emp">Empresa o institución<input id="q-emp" autocomplete="organization"></label>
+            <label for="q-mail">Correo<input id="q-mail" type="email" autocomplete="email"></label>
+            <label for="q-tel">Teléfono<input id="q-tel" type="tel" autocomplete="tel"></label>
+            <label for="q-srv" class="full">Servicio que necesita<select id="q-srv"><option>Seguridad de Recursos Humanos</option><option>Seguridad Tecnológica</option><option>Control de Acceso y Recepción</option><option>Consultoría y Análisis de Riesgos</option></select></label>
+            <label for="q-msg" class="full">Mensaje<textarea id="q-msg" rows="3"></textarea></label>
+            <div class="full" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center"><button class="btn red" type="submit">Solicitar cotización</button><span class="ok" id="okq" role="status"></span></div>
+          </form>
+        </section>
+        <section class="s" id="empleo">
+          <h3>Trabaja con SUAT</h3>
+          <div class="jobs">
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <p class="lead" style="margin:0">Cargos abiertos, con su propio formulario y un correo de postulaciones separado del comercial.</p>
+              <ul><li>Supervisor de guardia</li><li>Guardia de seguridad</li><li>Controlador CCTV</li><li>Encargado de control</li></ul>
+              <p style="margin:0;font-size:14px"><span class="ph-note">Beneficios y requisitos: completar con SUAT</span></p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
+              <p style="margin:0;color:var(--site-muted)">Postula en pocos minutos con tu CV.</p>
+              <a class="btn navy" href="#" onclick="return false">Postular ahora</a>
+            </div>
+          </div>
+        </section>
+        <div class="foot">
+          <div><h5>Datos importantes</h5><p>Arturo Prat #1370, Santiago, Chile</p><p>Lunes a jueves de 09:00 a 17:00 hrs.</p><p>Viernes de 09:00 a 15:00 hrs.</p></div>
+          <div><h5>Contacto</h5><p>comercial@suat.cl</p><p>+56 2 2363 5000</p></div>
+          <div><h5>Certificaciones</h5><p>Sistema de gestión certificado por Applus: ISO 9001, ISO 14001 e ISO 45001.</p></div>
+          <div><h5>Enlaces</h5><p><a href="#" onclick="return false">Políticas de Gestión</a></p><p><a href="#" onclick="return false">Trabaja con nosotros</a></p><p>© SUAT - Seguridad Total</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="changes">
+      <h2>Qué cambia</h2>
+      <ul>
+        <li><strong>Portada con mensaje:</strong> dice qué hace SUAT y para quién, con el respaldo a la vista (20 años, autorización de Carabineros, sello Applus).</li>
+        <li><strong>Clientes con nombre y segmento:</strong> los mismos 10 logos de hoy, agrupados por tipo de cliente y con un lugar para casos de éxito.</li>
+        <li><strong>Cotización en la portada:</strong> un formulario corto que indica qué servicio se necesita.</li>
+        <li><strong>Empleo visible:</strong> sección propia con cargos y postulación, separada del correo comercial.</li>
+        <li><strong>Pie limpio:</strong> sin texto de relleno y con las políticas enlazadas al sitio real.</li>
+      </ul>
+      <p style="margin:12px 0 0;color:var(--muted);font-size:14px">Datos tomados de suat.cl: autorización Nº 0502, norma OS10, segmentos de servicio, sello Applus y "20 años" de sus propias imágenes. Hay que confirmarlos con SUAT antes de publicar.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var tA=document.getElementById('t-antes'),tD=document.getElementById('t-despues');
+  var pA=document.getElementById('p-antes'),pD=document.getElementById('p-despues');
+  function show(d){
+    pA.hidden=d;pD.hidden=!d;
+    pA.style.display=d?'none':'flex';pD.style.display=d?'flex':'none';
+    tA.setAttribute('aria-selected',String(!d));tD.setAttribute('aria-selected',String(d));
+    try{history.replaceState(null,'',d?'#despues':'#antes')}catch(e){}
+  }
+  tA.onclick=function(){show(false)};tD.onclick=function(){show(true)};
+  show(location.hash==='#despues');
+  document.getElementById('fq').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('okq').textContent='Esto es una muestra: el formulario real enviará la solicitud a comercial@suat.cl.';
+  });
+})();
+</script>
+</body></html>

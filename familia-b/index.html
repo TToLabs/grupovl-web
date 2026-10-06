@@ -1,0 +1,321 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Nueva cara Grupo VL</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Concepto: sitio corporativo sobrio con la línea de las webs actuales (logo, menú, foto grande, servicios, clientes, pie oscuro), modernizado: foto a todo ancho, tipografía contenida, líneas finas y el color de la marca solo en acentos. Una plantilla, cuatro marcas. Diseño deliberadamente claro. */
+:root{
+  color-scheme:light;
+  --paper:#FFFFFF; --alt:#F3F5F8; --ink:#101828; --muted:#5A6577; --line:#E1E6ED; --mock:#2B3240; --mockt:#E9EDF3;
+  --deep:#0F2A57; --main:#1F4E9C; --acc:#E8A100; --acct:#14181F;
+  --display:'Archivo','Helvetica Neue',Arial,sans-serif; --body:'Public Sans','Helvetica Neue',Arial,sans-serif;
+}
+.site[data-b="suat"]{--deep:#0E2259;--main:#1B3A8C;--acc:#D3202F;--acct:#FFFFFF}
+.site[data-b="vl"]{--deep:#0F2A57;--main:#1F4E9C;--acc:#E8A100;--acct:#14181F}
+.site[data-b="maq"]{--deep:#121418;--main:#2A2E36;--acc:#F2C200;--acct:#101216}
+.site[data-b="tre"]{--deep:#0F3D1B;--main:#1E7A33;--acc:#F0A30A;--acct:#14181F}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.in{max-width:1200px;margin-inline:auto;padding-inline:24px}
+@media (max-width:600px){.in{padding-inline:16px}.util{display:none}}
+
+.mock{background:var(--mock);color:var(--mockt);font-size:13px}
+.mock .in{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding-block:8px}
+.mock .sw{display:flex;flex-wrap:wrap;gap:4px}
+.mock button{font:600 13px var(--body);background:transparent;color:var(--mockt);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:5px 12px;cursor:pointer}
+.mock button[aria-pressed="true"]{background:#fff;color:#14181F;border-color:#fff}
+
+.util{background:var(--deep);color:#DCE3EE;font-size:13px}
+.util .in{display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between;padding-block:7px}
+.util span{display:flex;gap:16px;flex-wrap:wrap}
+.util a{text-decoration:none;opacity:.9}.util a:hover{opacity:1;text-decoration:underline}
+
+header.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+header.hd .in{display:flex;align-items:center;gap:24px;min-height:76px;position:relative}
+.brand img{height:46px;width:auto;display:block}
+nav.mn{display:flex;gap:4px;margin-left:auto}
+nav.mn a{font:600 14px var(--display);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--deep);padding:10px 12px;border-radius:6px}
+nav.mn a:hover{background:var(--alt)}
+.hd .acts{display:flex;gap:10px;align-items:center}
+.btn{font:700 14px var(--display);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;border-radius:6px;padding:12px 20px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;line-height:1.1}
+.btn.acc{background:var(--acc);color:var(--acct)}
+.btn.acc:hover{filter:brightness(1.06)}
+.btn.out{border-color:currentColor;color:var(--deep);background:transparent}
+.btn.wh{border-color:rgba(255,255,255,.8);color:#fff;background:transparent}
+.btn.wh:hover{background:rgba(255,255,255,.1)}
+.menu{display:none;font:700 14px var(--display);text-transform:uppercase;letter-spacing:.04em;background:transparent;border:1px solid var(--line);border-radius:6px;padding:10px 12px;color:var(--deep);cursor:pointer;margin-left:auto}
+@media (max-width:980px){nav.mn{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 16px 16px}nav.mn.open{display:flex}.menu{display:block}.hd .acts .out{display:none}}
+@media (max-width:520px){.brand img{height:40px}.hd .acts .acc{padding:10px 14px}}
+
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--deep)}
+.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;animation:kb 1.8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,color-mix(in srgb,var(--deep) 92%,transparent) 0%,color-mix(in srgb,var(--deep) 72%,transparent) 48%,color-mix(in srgb,var(--deep) 15%,transparent) 100%)}
+.hero .in{position:relative;z-index:2;padding-block:96px 0;display:flex;flex-direction:column;gap:22px}
+.eb{display:flex;align-items:center;gap:12px;font:700 12.5px var(--display);letter-spacing:.14em;text-transform:uppercase;margin:0}
+.eb::before{content:"";width:28px;height:3px;background:var(--acc);display:block;flex:none}
+.hero h1{font-weight:700;font-size:clamp(32px,4.8vw,60px);line-height:1.06;max-width:17ch}
+.hero p.lead{margin:0;font-size:clamp(16px,1.6vw,19px);max-width:54ch;color:#E3E9F3}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.facts{margin-top:64px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.22);background:color-mix(in srgb,var(--deep) 60%,transparent);backdrop-filter:blur(4px)}
+.facts div{padding:22px 24px;border-left:1px solid rgba(255,255,255,.18);display:flex;flex-direction:column;gap:2px;min-width:0}
+.facts div:first-child{border-left:0}
+.facts strong{font:700 clamp(22px,2.4vw,30px)/1.15 var(--display);font-variant-numeric:tabular-nums}
+.facts span{font-size:14px;color:#D3DCEA}
+@media (max-width:760px){.hero .in{padding-block:56px 0}.facts{grid-template-columns:1fr;margin-inline:-16px;margin-top:40px}.facts div{border-left:0;border-top:1px solid rgba(255,255,255,.14);padding:14px 16px}}
+
+section.sc{padding-block:88px}
+section.sc.alt{background:var(--alt)}
+.shead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:40px}
+.shead .eb{color:var(--main);margin-bottom:12px}
+.shead h2{font-size:clamp(28px,3.4vw,42px);font-weight:700;line-height:1.1;color:var(--deep)}
+.shead p{margin:0;color:var(--muted);max-width:52ch}
+@media (max-width:760px){section.sc{padding-block:60px}.shead{grid-template-columns:1fr;margin-bottom:28px}}
+
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.svc article{display:flex;flex-direction:column;gap:12px;min-width:0}
+.svc .im{aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:var(--alt)}
+.svc img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.svc article:hover img{transform:scale(1.04)}
+.svc h3{font-size:20px;font-weight:700;color:var(--deep);line-height:1.2}
+.svc p{margin:0;color:var(--muted);font-size:15px}
+.svc .by{font:600 12px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--main)}
+.more{font:700 13px var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--main);text-decoration:none;display:inline-flex;gap:8px;align-items:center;margin-top:auto;padding-top:4px;border-bottom:2px solid transparent;align-self:flex-start}
+.more:hover{border-bottom-color:var(--acc)}
+.olist{margin-top:36px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));column-gap:32px}
+.olist div{padding:18px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-weight:600;color:var(--deep)}
+.olist small{color:var(--muted);font-weight:400;text-align:right}
+
+.tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:32px}
+.tabs button{font:700 14px var(--display);letter-spacing:.04em;text-transform:uppercase;background:transparent;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;padding:14px 18px;color:var(--muted);cursor:pointer;display:flex;gap:8px;align-items:baseline}
+.tabs button b{font:600 12px var(--body);color:var(--muted)}
+.tabs button[aria-selected="true"]{color:var(--deep);border-bottom-color:var(--acc)}
+.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.logos div{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:18px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;min-width:0}
+.logos img{height:64px;width:100%;object-fit:contain;filter:grayscale(1);opacity:.8;transition:filter .3s,opacity .3s}
+.logos div:hover img{filter:none;opacity:1}
+.logos span{font-size:13px;color:var(--muted);line-height:1.3}
+.secnote{margin:14px 0 0;font-size:13px;color:var(--muted)}
+
+.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.proj article{background:var(--paper);padding:24px;display:flex;flex-direction:column;gap:10px}
+.proj .st{font:700 11.5px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--main);display:flex;gap:8px;align-items:center}
+.proj .st i{width:8px;height:8px;border-radius:50%;background:var(--acc);display:block}
+.proj .st.done i{background:#9AA6B6}
+.proj h3{font-size:20px;color:var(--deep)}
+.proj dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px}
+.proj dt{color:var(--muted)}.proj dd{margin:0;font-weight:600}
+.proj .ton{font:700 28px var(--display);color:var(--deep);margin-top:auto;padding-top:8px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px}
+.steps div{border-top:2px solid var(--deep);padding-top:16px}
+.steps small{font:700 12px var(--display);letter-spacing:.12em;color:var(--main)}
+.steps h3{font-size:22px;color:var(--deep);margin:6px 0}
+.steps p{margin:0;color:var(--muted);font-size:15px}
+
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.res a{display:flex;flex-direction:column;gap:10px;text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:24px;background:var(--paper);transition:border-color .2s,transform .2s}
+.res a:hover{border-color:var(--main);transform:translateY(-2px)}
+.res small{font:700 11.5px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--main)}
+.res h3{font-size:19px;color:var(--deep);line-height:1.25}
+.res p{margin:0;color:var(--muted);font-size:14.5px}
+.tagx{display:inline-block;font:600 11.5px var(--body);color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:2px 10px;align-self:flex-start;margin-top:auto}
+
+.talk{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:start}
+.talk h2{font-size:clamp(28px,3.4vw,42px);color:var(--deep);line-height:1.1;margin-top:12px}
+.talk .eb{color:var(--main)}
+.talk p{color:var(--muted);max-width:44ch}
+.talk ul{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.talk li{display:flex;gap:12px;align-items:baseline}
+.talk li::before{content:"";width:8px;height:8px;background:var(--acc);flex:none;transform:translateY(-1px)}
+form.f{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+form.f label{display:flex;flex-direction:column;gap:6px;font:600 13px var(--body);color:var(--ink);min-width:0}
+form.f input,form.f textarea{font:400 15px var(--body);padding:12px 14px;border:1px solid #C9D1DC;border-radius:4px;background:#fff;color:var(--ink);width:100%;min-width:0}
+form.f input:focus,form.f textarea:focus{border-color:var(--main);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--main) 18%,transparent)}
+form.f .full{grid-column:1/-1}
+form.f .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+form.f small{color:var(--muted);font-size:12.5px;max-width:40ch}
+.ok{grid-column:1/-1;color:#0B6B3A;font-weight:600;font-size:14px}
+@media (max-width:860px){.talk{grid-template-columns:1fr;gap:28px}form.f{grid-template-columns:1fr;padding:20px}}
+
+.job{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:420px;background:var(--deep);color:#fff}
+.job .ph{background-size:cover;background-position:center}
+.job .tx{padding:64px clamp(24px,5vw,72px);display:flex;flex-direction:column;gap:18px;justify-content:center}
+.job h2{font-size:clamp(28px,3.2vw,40px);line-height:1.1}
+.job p{margin:0;color:#D6DEEA;max-width:46ch}
+.job ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.job li{border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:6px 14px;font-size:14px;font-weight:600}
+@media (max-width:760px){.job{grid-template-columns:1fr}.job .ph{min-height:220px}.job .tx{padding:40px 16px}}
+
+footer.ft{background:#0B1220;color:#C3CCDA;font-size:14px}
+.site[data-b="maq"] footer.ft{background:#0D0F12}
+.site[data-b="tre"] footer.ft{background:#0A1F10}
+footer .top{display:grid;grid-template-columns:1.3fr repeat(3,minmax(0,1fr));gap:32px;padding-block:64px 40px}
+footer .lg{background:#fff;border-radius:4px;padding:8px 12px;display:inline-flex}
+footer .lg img{height:40px;width:auto;display:block}
+footer h4{font:700 12px var(--display);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+footer p{margin:0 0 6px}
+footer a{text-decoration:none}footer a:hover{text-decoration:underline;color:#fff}
+footer .grp{display:flex;flex-wrap:wrap;gap:8px 20px;padding-block:20px;border-top:1px solid rgba(255,255,255,.12);align-items:center}
+footer .grp button{font:600 14px var(--body);background:none;border:0;color:#C3CCDA;cursor:pointer;padding:4px 0}
+footer .grp button:hover,footer .grp button[aria-current="true"]{color:#fff}
+footer .grp button[aria-current="true"]{box-shadow:inset 0 -2px 0 var(--acc)}
+footer .bt{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;padding-block:18px 28px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:#8D99AB}
+.copy{font:600 12.5px var(--body);background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:4px;padding:4px 10px;cursor:pointer;margin-left:8px}
+@media (max-width:860px){footer .top{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .top{grid-template-columns:1fr}}
+.mnote{background:var(--alt);color:var(--muted);font-size:12.5px;text-align:center;padding:12px 16px;margin:0}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#101828;color:#fff;padding:10px 16px;border-radius:6px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50;max-width:calc(100% - 32px)}
+#toast.on{opacity:1}
+[hidden]{display:none!important}
+</style>
+
+<div class="mock"><div class="in"><span>Muestra · Una plantilla para las cuatro webs</span><div class="sw" id="sw" role="group" aria-label="Ver como"></div></div></div>
+<div class="site" id="site" data-b="vl"></div>
+<p class="mnote">Maqueta con las fotos, clientes y datos que cada empresa publica hoy. Los contenidos marcados "Ejemplo" deben validarse antes de publicar.</p>
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+var BR={
+ vl:{dir:'v',name:'Grupo VL',
+  eyebrow:'Grupo empresarial · servicios integrales',
+  h1:'Servicios integrales para empresas, industrias e instituciones',
+  lead:'Aseo, seguridad privada, gestión de residuos, áreas verdes y estructuras metálicas, a través de empresas especializadas que trabajan como un solo socio.',
+  hero:'ban7.jpg',
+  facts:[['+60','clientes en el país'],['~1.000','trabajadores, según grupovl.cl'],['8','regiones con presencia']],
+  svcTitle:'Un grupo, varias especialidades',svcLead:'Cada servicio lo presta una empresa del grupo con su propio equipo y experiencia.',
+  svc:[['Aseo industrial y de oficinas','Maxilimpio','Limpieza diaria y especializada, incluida limpieza en altura.','oficinas.jpg'],['Seguridad privada','SUAT','Guardias, supervisión y apoyo tecnológico.','suat.jpg'],['Áreas verdes','Tresur','Mantenimiento de parques y espacios públicos.','areas.jpg'],['Gestión de residuos','Tresur','Recolección y transporte para municipios e industrias.','camiones.jpg']],
+  other:[['Estructuras metálicas','Maquinfra'],['Capacitación','Captotal y Ceducap']],
+  sectors:[['Salud',[['cl-arriaran.jpg','Hospital San Borja Arriarán'],['cl-pino.jpg','Hospital El Pino'],['cl-saludpublica.jpg','Instituto de Salud Pública']]],
+   ['Estado',[['cl-sag.jpg','SAG'],['cl-sernatur.jpg','Sernatur'],['cl-subsecretaria.jpg','Subsecretaría del Interior'],['cl-corfo.jpg','CORFO'],['cl-sence.jpg','SENCE'],['cl-laboral.jpg','Instituto de Seguridad Laboral'],['cl-cultural.jpg','Servicio Nacional del Patrimonio Cultural'],['cl-deportes.jpg','Instituto Nacional de Deportes'],['cl-museomenoria.jpg','Museo de la Memoria y los Derechos Humanos']]],
+   ['Municipios',[['cl-concepcion.jpg','Concepción'],['cl-img02.jpg','Cerro Navia'],['cl-cm.png','Lo Espejo'],['cl-03.png','Lampa'],['cl-img03.jpg','Renca'],['cl-imgm.jpg','Requínoa'],['cl-machali.jpg','Machalí'],['cl-muni.jpg','Independencia'],['cl-nogales.jpg','Nogales'],['cl-recoleta.png','Pudahuel']]],
+   ['Universidades',[['cl-udp.jpg','Universidad Diego Portales'],['cl-univalparaiso.jpg','Universidad de Valparaíso'],['cl-talca.jpg','Universidad de Talca'],['cl-losandes.jpg','Universidad de los Andes']]],
+   ['Empresas',[['cl-logicalis.jpg','Logicalis'],['cl-02.png','Sacyr'],['cl-06.png','CHC'],['cl-3.png','EDAM'],['cl-alianza.jpg','Alianza Team'],['cl-unnamed.png','AZA']]]],
+  steps:[['Conversamos','Entendemos qué necesitas y qué empresas del grupo participan.'],['Proponemos','Una sola propuesta, aunque intervengan varias empresas.'],['Operamos','Un contacto comercial acompaña todo el servicio.']],
+  res:[['Guía','Cómo contratar varios servicios con un solo proveedor','Qué conviene unir en un contrato y qué no.'],['Licitaciones','Documentos que pide un comprador público','Certificaciones, políticas y fichas de cada empresa.'],['Empleo','Cómo postular a las empresas del grupo','Cargos, requisitos y proceso.']],
+  jobs:['Guardia de seguridad','Operario de aseo','Peoneta de recolección','Chofer de camión','Supervisor','Mecánico'],jobImg:'suat.jpg',jobText:'Cada empresa del grupo publica sus cargos. Postula a la que más se acerque a tu experiencia.',
+  addr:'Arturo Prat 1370, Santiago',tel:'+56 2 2363 5000',mail:'comercial@grupovl.cl',hrs:'Lunes a jueves 09:00 a 17:00 · Viernes 09:00 a 15:00'},
+ suat:{dir:'s',name:'SUAT',
+  eyebrow:'Seguridad privada · norma OS10',
+  h1:'Seguridad privada para hospitales, instituciones públicas e industria',
+  lead:'Guardias capacitados bajo la norma OS10 de Carabineros, con supervisión en terreno y apoyo tecnológico cuando el recinto lo necesita.',
+  hero:'hero-rrhh.jpg',
+  facts:[['20 años','junto a nuestros clientes'],['Nº 0502','Autorización de Carabineros, DS 93 de 1985'],['Certificación ISO','9001, 14001 y 45001, por Applus']],
+  svcTitle:'Nuestros servicios',svcLead:'Personas, tecnología y análisis para proteger cada recinto según su riesgo.',
+  svc:[['Seguridad de recursos humanos',null,'Guardias, supervisores y coordinadores OS10.','hero-rrhh.jpg'],['Seguridad tecnológica',null,'Monitoreo y cámaras integradas a la vigilancia.','hero-tec.jpg'],['Control de acceso y recepción',null,'Ingreso ordenado a edificios e instituciones.','hero-acceso.jpg'],['Consultoría y análisis de riesgos',null,'Prevención de amenazas antes de que ocurran.','hero-consultoria.jpg']],
+  other:[],
+  sectors:[['Salud',[['c6.png','Hospital San Juan de Dios'],['c8.jpg','Hospital San José'],['c2.png','Complejo Asistencial Barros Luco']]],['Estado',[['c4.jpg','Subsecretaría del Interior'],['c3.jpg','Servicio Nacional del Patrimonio Cultural']]],['Municipios',[['c1.png','Renca'],['c5.png','Quilicura'],['c7.png','Independencia'],['c10.jpg','San Bernardo']]],['Empresas',[['c9.jpeg','Besalco Construcciones']]]],
+  steps:[['Visitamos','Recorremos el recinto y evaluamos sus riesgos.'],['Proponemos','Dotación, turnos y apoyo tecnológico por escrito.'],['Operamos','Supervisión en terreno y reportes periódicos.']],
+  res:[['Normativa','Qué exige la norma OS10 a un guardia','Requisitos, curso y credencial.'],['Salud','Control de acceso en recintos hospitalarios','Cómo ordenar visitas, urgencias y proveedores.'],['Licitaciones','Documentos para contratar seguridad pública','Autorización, certificaciones y políticas.']],
+  jobs:['Guardia de seguridad','Supervisor de guardia','Controlador CCTV','Encargado de control'],jobImg:'hero-acceso.jpg',jobText:'Buscamos personas responsables para recintos de salud, instituciones y empresas.',
+  addr:'Arturo Prat #1370, Santiago',tel:'+56 2 2363 5000',mail:'comercial@suat.cl',hrs:'Lunes a jueves 09:00 a 17:00 · Viernes 09:00 a 15:00'},
+ maq:{dir:'m',name:'Maquinfra',
+  eyebrow:'Estructuras metálicas · San Bernardo',
+  h1:'Estructuras metálicas para túneles, telecomunicaciones y minería',
+  lead:'Diseñamos, proyectamos, suministramos, fabricamos e instalamos estructuras para las obras más exigentes del país.',
+  hero:'ban2.jpg',
+  facts:[['4.500 t','contratadas para la Línea 7 del Metro de Santiago'],['+1.500 t','en Américo Vespucio Oriente I'],['11 años','de experiencia']],
+  svcTitle:'Línea de productos',svcLead:'Fabricación propia en San Bernardo e instalación en obra.',
+  svc:[['Fortificación de túneles',null,'Marcos reticulados para obras subterráneas.','fort.jpg'],['Telecomunicaciones y electricidad',null,'Torres autosoportadas y monopostes.','tower.jpg'],['Tolvas y aljibes',null,'Equipos metálicos a medida.','hopper.jpg'],['Otras estructuras metálicas',null,'Estructuras para obras y faenas.','proy.jpg']],
+  other:[],
+  sectors:[['Construcción e infraestructura',[['cl1.png','Astaldi'],['cl3.png','Besalco Construcciones'],['cl4.png','Sacyr'],['cl6.png','Ferrovial Agroman'],['cl8.png','OHL Construcción'],['cl10.png','Dragados'],['cl11.png','CRTG'],['cl17.png','CRCC']]],['Energía',[['cl2.png','Abengoa'],['cl7.png','Engie'],['cl5.png','Consorcio BOV']]],['Telecomunicaciones',[['cl15.png','WOM']]]],
+  projects:[['En ejecución','Línea 7 Metro de Santiago','CRTG, OHL, CRCC','2023 en adelante','4.500 t'],['Concluido','Autopista Américo Vespucio Oriente I','Constructora Vespucio Oriente','2019 a 2022','+1.500 t'],['Concluido','Mina El Teniente','Astaldi','2019 a 2023','638 t'],['Activo','Central Hidroeléctrica Los Lagos','Consorcio BOV','2020 en adelante','+330 t'],['Concluido','Torres de telecomunicación','WOM','2017 a 2018','Torres y monopostes'],['Concluido','Extensiones Metro L2, L3 y L6','Besalco, OHLA, CRTG','2017 a 2018','+100 t']],
+  steps:[['Diseñar','Estructura según la obra.'],['Proyectar','Planos, cálculo y plazos.'],['Fabricar','En nuestra planta de San Bernardo.'],['Instalar','Montaje en terreno.']],
+  res:[['Ficha técnica','Marcos reticulados para túneles','Dimensiones, materiales y usos.'],['Ficha técnica','Torres y monopostes','Tipos y alturas disponibles.'],['Calidad','Certificados ISO 9001, 14001 y 45001','Sistema de gestión certificado por Applus.']],
+  jobs:['Soldador','Armador','Operador de planta','Jefe de obra'],jobImg:'proy.jpg',jobText:'Únete a una planta que fabrica para el Metro, la minería y las telecomunicaciones.',
+  addr:'Las Acacias 110, San Bernardo',tel:'',mail:'contacto@maquinfra.cl',hrs:''},
+ tre:{dir:'t',name:'Tresur',
+  eyebrow:'Residuos · limpieza · áreas verdes',
+  h1:'Recolección y gestión de residuos para municipios e industrias',
+  lead:'Una amplia flota de camiones y equipos de recolección, con procesos estandarizados bajo normativas nacionales e internacionales.',
+  hero:'camiones.jpg',
+  facts:[['7','líneas de servicio'],['Residuos peligrosos','y no peligrosos: manejo, recolección y transporte'],['Certificación ISO','9001, 14001 y 45001, por Applus']],
+  svcTitle:'Nuestros servicios',svcLead:'Servicios para municipios, industrias y empresas, con personal capacitado y control operacional.',
+  svc:[['Limpieza a municipalidades',null,'Recolección y aseo comunal.','camiones.jpg'],['Áreas verdes',null,'Mantenimiento de parques y plazas.','areas.jpg'],['Limpieza industrial y sanitizado',null,'Mantenimiento de plantas e instalaciones.','limp.jpg']],
+  other:[['Residuos peligrosos y no peligrosos','Manejo y transporte'],['Transporte de agua industrial','Camiones aljibe'],['Economía circular','Valorización'],['Gestión de residuos','Planes por cliente']],
+  sectors:[['Municipios',[['cA.png','Lo Espejo'],['cC.png','Lampa'],['cD.jpg','Independencia'],['cE.jpg','Requínoa'],['cF.jpg','Cerro Navia'],['cG.jpg','Olivar'],['cJ.jpg','Nogales'],['cK.jpg','Machalí'],['cL.png','Pudahuel']]],['Empresas',[['cB.png','Abastible'],['cH.jpg','Dialum'],['cI.jpg','Recupac']]]],
+  steps:[['Conversamos','Qué se retira, dónde y con qué frecuencia.'],['Proponemos','Rutas, equipos y frecuencia por escrito.'],['Operamos','Recolección con control operacional.']],
+  res:[['Municipios','Qué pedir en una licitación de recolección','Frecuencias, flota y fiscalización.'],['Industria','Residuos peligrosos: cómo se transportan','Normativa y responsabilidades.'],['Economía circular','Qué pasa con los residuos después del retiro','Valorización y reciclaje.']],
+  jobs:['Peoneta de recolección','Chofer de camión','Chofer Ampliroll','Barredor','Supervisor','Mecánico'],jobImg:'areas.jpg',jobText:'Trabaja en terreno con un equipo que mantiene limpias las comunas de varias regiones.',
+  addr:'Arturo Prat 1370, Santiago',tel:'(+56) 2 2363 5000 · 2 2363 5050',mail:'comercial@tresur.cl',hrs:'Lunes a jueves 09:00 a 17:00 · Viernes 09:00 a 15:00'}
+};
+var ORDER=['vl','suat','maq','tre'];
+var GROUP=[['vl','Grupo VL'],['suat','SUAT'],['tre','Tresur'],['maq','Maquinfra'],[null,'Maxilimpio'],[null,'Captotal y Ceducap']];
+var cur='vl',sec=0;
+var $=function(s){return document.querySelector(s)};
+var site=$('#site'),sw=$('#sw'),toast=$('#toast');
+function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(say.t);say.t=setTimeout(function(){toast.classList.remove('on')},2800)}
+function I(b,f){return 'img/'+b.dir+'/'+f}
+
+function render(){
+ var b=BR[cur];site.dataset.b=cur;
+ var h='';
+ h+='<div class="util"><div class="in"><span><a href="#" data-say="Acceso a Muro SGI">Muro SGI</a><a href="#" data-say="Políticas de gestión integrada">Políticas de gestión</a><a href="#contacto">Ya soy cliente</a></span><span>'+(b.tel?'<span>'+b.tel+'</span>':'')+'<span>'+b.mail+'</span></span></div></div>';
+ h+='<header class="hd"><div class="in"><a class="brand" href="#inicio" aria-label="'+b.name+', inicio"><img src="'+I(b,'logo.png')+'" alt="'+b.name+'"></a>'+
+  '<nav class="mn" id="mn" aria-label="Principal"><a href="#servicios">Servicios</a><a href="#experiencia">Experiencia</a><a href="#recursos">Recursos</a><a href="#empleo">Empleo</a><a href="#contacto">Contacto</a></nav>'+
+  '<button class="menu" id="menu" aria-expanded="false" aria-controls="mn">Menú</button>'+
+  '<div class="acts"><a class="btn out" href="#empleo">Trabaja con nosotros</a><a class="btn acc" href="#contacto">Cotizar</a></div></div></header>';
+ h+='<section class="hero" id="inicio"><div class="bg" style="background-image:url('+I(b,b.hero)+')"></div><div class="in"><p class="eb">'+b.eyebrow+'</p><h1>'+b.h1+'</h1><p class="lead">'+b.lead+'</p>'+
+  '<div class="cta"><a class="btn acc" href="#contacto">Cotizar</a><a class="btn wh" href="#servicios">Conoce nuestros servicios</a></div>'+
+  '<div class="facts">'+b.facts.map(function(f){return '<div><strong>'+f[0]+'</strong><span>'+f[1]+'</span></div>'}).join('')+'</div></div></section>';
+ h+='<section class="sc" id="servicios"><div class="in"><div class="shead"><div><p class="eb">Servicios</p><h2>'+b.svcTitle+'</h2></div><p>'+b.svcLead+'</p></div><div class="svc">'+
+  b.svc.map(function(s){return '<article><div class="im"><img src="'+I(b,s[3])+'" alt="" loading="lazy"></div>'+(s[1]?'<span class="by">'+s[1]+'</span>':'')+'<h3>'+s[0]+'</h3><p>'+s[2]+'</p><a class="more" href="#" data-say="Página de '+s[0]+'">Ver servicio →</a></article>'}).join('')+'</div>'+
+  (b.other.length?'<div class="olist">'+b.other.map(function(o){return '<div>'+o[0]+' <small>'+o[1]+'</small></div>'}).join('')+'</div>':'')+'</div></section>';
+ if(b.projects){
+  h+='<section class="sc alt" id="proyectos"><div class="in"><div class="shead"><div><p class="eb">Proyectos</p><h2>Obras que respaldan nuestro trabajo</h2></div><p>Toneladas, clientes y plazos tal como aparecen en la sección Proyectos de maquinfra.cl.</p></div><div class="proj">'+
+   b.projects.map(function(p){return '<article><span class="st'+(p[0]==='Concluido'?' done':'')+'"><i></i>'+p[0]+'</span><h3>'+p[1]+'</h3><dl><dt>Cliente</dt><dd>'+p[2]+'</dd><dt>Período</dt><dd>'+p[3]+'</dd></dl><span class="ton">'+p[4]+'</span></article>'}).join('')+'</div></div></section>';
+ }
+ var tot=b.sectors.reduce(function(a,s){return a+s[1].length},0);
+ h+='<section class="sc'+(b.projects?'':' alt')+'" id="experiencia"><div class="in"><div class="shead"><div><p class="eb">Experiencia</p><h2>Quienes ya confían en '+b.name+'</h2></div><p>'+tot+' clientes que hoy aparecen en el sitio, ordenados por sector.</p></div>'+
+  '<div class="tabs" role="tablist" aria-label="Sectores">'+b.sectors.map(function(s,i){return '<button role="tab" id="tb'+i+'" aria-selected="'+(i===sec)+'" aria-controls="tp" data-i="'+i+'">'+s[0]+' <b>'+s[1].length+'</b></button>'}).join('')+'</div>'+
+  '<div class="logos" role="tabpanel" id="tp" aria-labelledby="tb'+sec+'"></div><p class="secnote">Agrupación por sector hecha para esta muestra. Cada empresa confirma qué clientes autoriza mostrar.</p></div></section>';
+ h+='<section class="sc" id="metodo"><div class="in"><div class="shead"><div><p class="eb">Cómo trabajamos</p><h2>Del primer contacto a la operación</h2></div><p>Un proceso simple y por escrito, para que sepas qué esperar en cada etapa.</p></div><div class="steps">'+
+  b.steps.map(function(s,i){return '<div><small>PASO '+(i+1)+'</small><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('')+'</div></div></section>';
+ h+='<section class="sc alt" id="recursos"><div class="in"><div class="shead"><div><p class="eb">Recursos</p><h2>Información útil para decidir</h2></div><p>Guías y documentos para clientes y compradores públicos.</p></div><div class="res">'+
+  b.res.map(function(r){return '<a href="#" data-say="Aquí se abriría: '+r[1]+'"><small>'+r[0]+'</small><h3>'+r[1]+'</h3><p>'+r[2]+'</p><span class="tagx">Ejemplo</span></a>'}).join('')+'</div></div></section>';
+ h+='<section class="sc" id="contacto"><div class="in talk"><div><p class="eb">Conversemos</p><h2>¿Tienes un proyecto en mente?</h2><p>Cuéntanos qué necesitas, aunque no sepas el nombre del servicio. Un ejecutivo de '+b.name+' te contacta con una propuesta.</p>'+
+  '<ul><li>Te responde un ejecutivo, no un mensaje automático</li><li>Visita a terreno cuando el proyecto lo requiere</li><li>Propuesta por escrito</li></ul></div>'+
+  '<form class="f" id="ff" novalidate><label for="f-n">Nombre<input id="f-n" autocomplete="name"></label><label for="f-e">Empresa o institución<input id="f-e" autocomplete="organization"></label><label for="f-m">Correo<input id="f-m" type="email" autocomplete="email"></label><label for="f-t">Teléfono<input id="f-t" type="tel" autocomplete="tel"></label>'+
+  '<label for="f-x" class="full">¿Qué necesitas?<textarea id="f-x" rows="4" placeholder="Por ejemplo: dónde, qué tipo de trabajo y para cuándo"></textarea></label>'+
+  '<div class="row"><small>Tus datos se usan solo para responder esta solicitud.</small><button class="btn acc" type="submit">Enviar</button></div><div class="ok" id="fok" role="status"></div></form></div></section>';
+ h+='<section class="job" id="empleo"><div class="ph" style="background-image:url('+I(b,b.jobImg)+')" role="img" aria-label="Equipo de '+b.name+'"></div><div class="tx"><p class="eb">Trabaja con nosotros</p><h2>Súmate al equipo de '+b.name+'</h2><p>'+b.jobText+'</p><ul>'+b.jobs.map(function(j){return '<li>'+j+'</li>'}).join('')+'</ul><div><a class="btn acc" href="#" data-say="Aquí se abriría la postulación">Postular ahora</a></div></div></section>';
+ h+='<footer class="ft"><div class="in"><div class="top"><div><span class="lg"><img src="'+I(b,'logo.png')+'" alt="'+b.name+'"></span><p style="margin-top:16px;max-width:34ch">Sistema de gestión certificado por Applus: ISO 9001, 14001 y 45001.</p></div>'+
+  '<div><h4>Contacto</h4>'+(b.tel?'<p>'+b.tel+'</p>':'')+'<p>'+b.mail+'<button class="copy" id="copy" type="button">Copiar</button></p></div>'+
+  '<div><h4>Ubicación</h4><p>'+b.addr+'</p>'+(b.hrs?'<p>'+b.hrs+'</p>':'')+'</div>'+
+  '<div><h4>Enlaces</h4><p><a href="#servicios">Servicios</a></p><p><a href="#empleo">Trabaja con nosotros</a></p><p><a href="#" data-say="Políticas de gestión integrada">Políticas de gestión</a></p><p><a href="#" data-say="Acceso a Muro SGI">Muro SGI</a></p></div></div>'+
+  '<div class="grp"><span style="font:700 12px var(--display);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-right:8px">Empresas del grupo</span>'+GROUP.map(function(g){return g[0]?'<button type="button" data-b="'+g[0]+'" aria-current="'+(g[0]===cur)+'">'+g[1]+'</button>':'<span>'+g[1]+'</span>'}).join('')+'</div>'+
+  '<div class="bt"><span>© '+b.name+'</span><span>Parte de Grupo VL</span></div></div></footer>';
+ site.innerHTML=h;
+ paintSector();
+ Array.prototype.forEach.call(site.querySelectorAll('.tabs button'),function(t){t.onclick=function(){sec=+t.dataset.i;Array.prototype.forEach.call(site.querySelectorAll('.tabs button'),function(x){x.setAttribute('aria-selected',String(x===t))});$('#tp').setAttribute('aria-labelledby',t.id);paintSector()}});
+ Array.prototype.forEach.call(site.querySelectorAll('[data-say]'),function(a){a.onclick=function(e){e.preventDefault();say('Muestra: '+a.dataset.say+'.')}});
+ Array.prototype.forEach.call(site.querySelectorAll('footer .grp button'),function(g){g.onclick=function(){setBrand(g.dataset.b,true)}});
+ var mb=$('#menu'),mn=$('#mn');mb.onclick=function(){var o=mn.classList.toggle('open');mb.setAttribute('aria-expanded',String(o))};
+ Array.prototype.forEach.call(mn.querySelectorAll('a'),function(a){a.addEventListener('click',function(){mn.classList.remove('open');mb.setAttribute('aria-expanded','false')})});
+ $('#ff').addEventListener('submit',function(e){e.preventDefault();$('#fok').textContent='Esto es una muestra: en el sitio real la solicitud llegaría a '+b.mail+'.'});
+ $('#copy').onclick=function(){try{navigator.clipboard.writeText(b.mail).then(function(){say('Correo copiado.')},function(){say('Selecciona el correo y cópialo.')})}catch(e){say('Selecciona el correo y cópialo.')}};
+}
+function paintSector(){
+ var b=BR[cur],s=b.sectors[sec]||b.sectors[0];
+ $('#tp').innerHTML=s[1].map(function(c){return '<div><img src="'+I(b,c[0])+'" alt="" loading="lazy"><span>'+c[1]+'</span></div>'}).join('');
+}
+function paintSw(){
+ sw.innerHTML=ORDER.map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===cur)+'">'+BR[k].name+'</button>'}).join('');
+ Array.prototype.forEach.call(sw.querySelectorAll('button'),function(x){x.onclick=function(){setBrand(x.dataset.k,true)}});
+}
+function setBrand(k,top){
+ if(!BR[k])return;
+ var go=function(){cur=k;sec=0;paintSw();render();try{history.replaceState(null,'','#'+k)}catch(e){}};
+ if(document.startViewTransition&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches))document.startViewTransition(go);else go();
+ if(top)window.scrollTo(0,0);
+}
+var h0=(location.hash||'').slice(1);if(BR[h0])cur=h0;
+paintSw();render();
+})();
+</script>
+
+</body></html>

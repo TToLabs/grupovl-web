@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Muestra web Maquinfra</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+
+/* Concepto: dos marcos de navegador, el actual anotado y el propuesto, sobre una mesa de trabajo neutra. Colores de marca tomados del logo de SUAT. */
+:root{
+  --bg:#EEF0F4; --fg:#16202E; --muted:#56647A; --line:#CBD2DE; --panel:#FFFFFF; --accent:#1B3A8C; --alert:#C21F2D; --chip:#E3E8F2;
+  --site-bg:#FFFFFF; --site-alt:#F2F5FA; --site-fg:#14213D; --site-muted:#56647A; --site-line:#DCE2EC; --navy:#1B3A8C; --navy-deep:#0E2259; --red:#D3202F;
+  --display:'Archivo','Arial Narrow',Arial,sans-serif; --body:'Public Sans',Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1623;--fg:#E6EBF5;--muted:#9AA8C0;--line:#2A3650;--panel:#172033;--accent:#8FA9F0;--alert:#FF8A93;--chip:#222E47;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1623;--fg:#E6EBF5;--muted:#9AA8C0;--line:#2A3650;--panel:#172033;--accent:#8FA9F0;--alert:#FF8A93;--chip:#222E47;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;padding-inline:16px}
+.wrap{max-width:1160px;margin-inline:auto;padding-block:28px 56px;display:flex;flex-direction:column;gap:24px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;text-wrap:balance}
+header.top{display:flex;flex-wrap:wrap;gap:16px;align-items:end;justify-content:space-between}
+header.top h1{font-size:clamp(28px,4vw,40px);font-weight:800}
+header.top p{margin:6px 0 0;color:var(--muted);max-width:60ch}
+.tabs{display:inline-flex;background:var(--chip);border-radius:10px;padding:4px;gap:4px}
+.tabs button{font:600 15px var(--body);border:0;background:transparent;color:var(--muted);padding:10px 18px;border-radius:8px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--panel);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.tabs button:focus-visible,a:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.frame{background:var(--site-bg);color:var(--site-fg);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(10,20,40,.14)}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#E8ECF3;border-bottom:1px solid var(--site-line)}
+.bar i{width:11px;height:11px;border-radius:50%;background:#C3CBD9;display:block}
+.bar span{margin-left:10px;font:500 13px var(--body);color:#56647A;background:#fff;border-radius:6px;padding:4px 12px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site{font-size:15px}
+.site a{color:inherit;text-decoration:none}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding:12px 28px;border-bottom:1px solid var(--site-line);background:#fff}
+.nav img{height:44px;width:auto;display:block}
+.nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 0 auto;padding:0;font:700 12.5px var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--navy-deep)}
+.btn{display:inline-block;font:700 13px var(--display);letter-spacing:.05em;text-transform:uppercase;padding:11px 20px;border-radius:6px;border:2px solid transparent;cursor:pointer}
+.btn.red{background:var(--red);color:var(--cta-fg)}
+.btn.navy{background:var(--navy);color:#fff}
+.btn.line{border-color:var(--navy);color:var(--navy);background:transparent}
+.btn.white{background:#fff;color:var(--navy-deep)}
+.hero{position:relative;min-height:340px;display:flex;align-items:center;color:#fff;background:#0E2259 center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ov1),var(--ov2))}
+.hero .in{position:relative;padding:44px 28px;max-width:640px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.hero h2{font-size:clamp(26px,4vw,42px);font-weight:800}
+.hero p{margin:0;font-size:17px;max-width:52ch;color:#E6ECFA}
+.dots{display:flex;gap:7px;position:absolute;bottom:14px;left:50%;transform:translateX(-50%)}
+.dots b{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.5)}.dots b:first-child{background:#fff}
+section.s{padding:36px 28px;display:flex;flex-direction:column;gap:20px}
+section.s.alt{background:var(--site-alt)}
+.s h3{font-size:clamp(22px,3vw,28px);font-weight:800;color:var(--navy-deep)}
+.s .lead{margin:0;color:var(--site-muted);max-width:68ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--site-line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card img.ph{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.card .b{padding:14px 16px 18px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.card h4{font:700 17px var(--display);margin:0;color:var(--navy-deep)}
+.card p{margin:0;font-size:14px;color:var(--site-muted)}
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.logos div{background:#fff;border:1px solid var(--site-line);border-radius:8px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;text-align:center;font-size:12.5px;color:var(--site-fg)}
+.logos img{width:100%;max-width:110px;aspect-ratio:1;object-fit:contain;display:block}
+.foot{background:var(--navy-deep);color:#D9E2F7;padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;font-size:14px}
+.foot h5{font:700 13px var(--display);letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px;color:#fff}
+.foot p{margin:0 0 4px}.foot a{text-decoration:underline}
+.pin{position:absolute;z-index:2;width:26px;height:26px;border-radius:50%;background:var(--alert);color:#fff;font:700 13px var(--display);display:grid;place-items:center;box-shadow:0 0 0 3px rgba(255,255,255,.85)}
+.rel{position:relative}
+.legend{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.legend h2{font-size:20px;font-weight:800}
+.legend ol{margin:0;padding:0;list-style:none;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.legend li{display:flex;gap:12px;align-items:flex-start;min-width:0}
+.legend li b.n{flex:none;width:24px;height:24px;border-radius:50%;background:var(--alert);color:#fff;font:700 12px var(--display);display:grid;place-items:center;margin-top:2px}
+.legend li span{color:var(--muted);font-size:14.5px}.legend li strong{display:block;color:var(--fg);font-size:15px}
+.tag{display:inline-block;font:600 12px var(--body);background:var(--chip);color:var(--muted);padding:3px 9px;border-radius:99px}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;background:var(--navy-deep);color:#fff}
+.trust div{padding:16px 20px;display:flex;gap:12px;align-items:center;border-right:1px solid rgba(255,255,255,.14);font-size:14px}
+.trust img{height:52px;width:auto;display:block}
+.trust strong{display:block;font:800 18px var(--display)}
+.seg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.seg .card .b{gap:10px}
+.mini{display:flex;flex-wrap:wrap;gap:8px}
+.mini img{width:54px;height:54px;object-fit:contain;border:1px solid var(--site-line);border-radius:6px;background:#fff}
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:0;background:#fff;border:1px solid var(--site-line);border-radius:10px;overflow:hidden}
+.case img{width:100%;height:100%;object-fit:cover;display:block;min-height:220px}
+.case .b{padding:22px;display:flex;flex-direction:column;gap:10px}
+.case blockquote{margin:0;font-size:15px;color:var(--site-muted);border-left:3px solid var(--red);padding-left:12px}
+.ph-note{color:#9A5B00;background:#FFF3DC;border-radius:4px;padding:1px 6px;font-weight:600}
+form.q{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;background:#fff;border:1px solid var(--site-line);border-radius:10px;padding:20px}
+form.q label{display:flex;flex-direction:column;gap:4px;font:600 13px var(--body);color:var(--site-fg);min-width:0}
+form.q input,form.q select,form.q textarea{font:400 15px var(--body);padding:10px 12px;border:1px solid #B9C3D6;border-radius:6px;background:#fff;color:#14213D;min-width:0;width:100%}
+form.q .full{grid-column:1/-1}
+.ok{color:#0B6B3A;font-weight:600;font-size:14px;min-height:20px}
+.jobs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.jobs ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.jobs li{background:#fff;border:1px solid var(--site-line);border-radius:99px;padding:7px 14px;font-size:14px;font-weight:600;color:var(--navy-deep)}
+.changes{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.changes h2{font-size:20px;font-weight:800;margin-bottom:10px}
+.changes ul{margin:0;padding-left:20px;display:grid;gap:6px;color:var(--muted);font-size:15px}.changes strong{color:var(--fg)}
+@media (max-width:720px){.case,.jobs{grid-template-columns:1fr}.nav ul{margin-left:0}.pin{width:22px;height:22px;font-size:11px}}
+[hidden]{display:none!important}
+
+.pill{display:inline-block;font:700 12px var(--body);padding:3px 10px;border-radius:99px;background:var(--site-alt);color:var(--navy-deep);border:1px solid var(--site-line)}
+.pill.on{background:#E3F4E8;color:#0B5F2E;border-color:#B9E1C6}.pill.done{background:#EEF1F6;color:#44526B}
+.grp{display:flex;flex-direction:column;gap:10px}.grp h4{font:800 15px var(--display);margin:0;color:var(--navy-deep);text-transform:uppercase;letter-spacing:.05em}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.projects .card .b{gap:8px}
+.projects dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:13.5px}.projects dt{color:var(--site-muted)}.projects dd{margin:0;font-weight:600}
+.svc-text .card .b{min-height:84px}
+.hero.short{min-height:300px}
+
+:root{--navy:#1B1E24;--navy-deep:#101216;--red:#F2C200;--cta-fg:#101216;--ov1:rgba(14,16,20,.88);--ov2:rgba(14,16,20,.35)}
+</style>
+</head><body>
+<div class="wrap">
+<header class="top"><div><h1>Muestra web Maquinfra</h1><p>La página de inicio de maquinfra.cl como es hoy y como podría ser, con las mismas imágenes del sitio actual. Es una maqueta: los textos nuevos usan datos que Maquinfra ya publica.</p></div>
+<div class="tabs" role="tablist" aria-label="Versión de la muestra"><button role="tab" id="t-antes" aria-selected="true" aria-controls="p-antes">Como es hoy</button><button role="tab" id="t-despues" aria-selected="false" aria-controls="p-despues">Como podría ser</button></div></header>
+<div id="p-antes" role="tabpanel" aria-labelledby="t-antes" style="display:flex;flex-direction:column;gap:24px">
+<div class="frame"><div class="bar"><i></i><i></i><i></i><span>maquinfra.cl · Recreación de la página actual</span></div><div class="site">
+<div class="nav"><img src="img/logo.png" alt="Maquinfra"><ul><li>Nosotros</li><li>Línea de productos</li><li>Proyectos</li><li>Muro SGI</li><li>Contacto</li></ul></div><div class="hero rel" style="background-image:url(img/ban1.jpg)"><span class="pin" style="top:14px;left:14px">1</span><div class="in"><h2 style="font-size:clamp(20px,3vw,30px)">Brindamos soluciones para el sector Construcción, Minero, Telecomunicación en estructuras metálicas.</h2><a class="btn white" href="#" onclick="return false">Escríbenos</a></div><span class="pin" style="top:14px;right:14px">2</span></div><section class="s rel"><span class="pin" style="top:14px;right:14px">3</span><h3>Línea de productos</h3><div class="cards"><div class="card"><img class="ph" src="img/fort.jpg" alt="Marcos reticulados en un túnel"><div class="b"><h4>Fortificación de túneles</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div><div class="card"><img class="ph" src="img/tower.jpg" alt="Torre de telecomunicaciones"><div class="b"><h4>Telecomunicaciones y electricidad</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div><div class="card"><img class="ph" src="img/hopper.jpg" alt="Tolva metálica"><div class="b"><h4>Tolvas y aljibes</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div><div class="card"><img class="ph" src="img/proy.jpg" alt="Estructura metálica en una obra"><div class="b"><h4>Otras estructuras metálicas</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div></div></section><section class="s alt rel"><span class="pin" style="top:14px;right:14px">4</span><h3>Nuestros clientes</h3><div class="logos"><div><img src="img/cl1.png" alt=""></div><div><img src="img/cl2.png" alt=""></div><div><img src="img/cl3.png" alt=""></div><div><img src="img/cl4.png" alt=""></div><div><img src="img/cl5.png" alt=""></div><div><img src="img/cl6.png" alt=""></div><div><img src="img/cl7.png" alt=""></div><div><img src="img/cl8.png" alt=""></div><div><img src="img/cl9.png" alt=""></div><div><img src="img/cl10.png" alt=""></div><div><img src="img/cl11.png" alt=""></div><div><img src="img/cl12.png" alt=""></div><div><img src="img/cl13.png" alt=""></div><div><img src="img/cl14.png" alt=""></div><div><img src="img/cl15.png" alt=""></div><div><img src="img/cl16.png" alt=""></div><div><img src="img/cl17.png" alt=""></div><div><img src="img/cl18.png" alt=""></div><div><img src="img/cl19.png" alt=""></div><div><img src="img/mwl.png" alt=""></div></div></section><div class="foot rel"><span class="pin" style="top:10px;right:14px">5</span><div><h5>Datos de contacto</h5><p>Email: contacto@maquinfra.cl</p></div><div><h5>Ubicación</h5><p>Las Acacias 110 San Bernardo - Chile</p></div><div><h5>Redes sociales</h5><p>Linkedin</p></div><div class="rel"><span class="pin" style="top:-4px;right:0">6</span><h5>Proceso administrativo de certificación Applus</h5><p>® 2021. Todos los derechos reservados – Maquinfra</p><p><a href="#" onclick="return false">Políticas de Gestión - GRUPOVL</a></p><p>Diseño: Rocket Media</p><p><a href="#" onclick="return false">Trabaja con nosotros</a></p></div></div>
+</div></div>
+<div class="legend"><h2>Qué se ve y por qué importa</h2><ol><li><b class="n">1</b><div><strong>Titular largo, sin cifras</strong><span>Nombra los rubros, pero no muestra años, toneladas ni obras que respalden a la empresa.</span></div></li><li><b class="n">2</b><div><strong>Contacto reducido al correo</strong><span>El pie muestra solo un email. No hay teléfono ni formulario en la portada.</span></div></li><li><b class="n">3</b><div><strong>Servicios sin obras ni resultados</strong><span>Cuatro tarjetas con foto y &quot;Ver servicio&quot;, sin proyectos ni números a la vista.</span></div></li><li><b class="n">4</b><div><strong>20 logos sin nombre, y proyectos en otra página</strong><span>Astaldi, Sacyr, Ferrovial o Engie aparecen solo como imagen. Los proyectos con año y toneladas están en la sección Proyectos, no en la portada.</span></div></li><li><b class="n">5</b><div><strong>Pie desactualizado</strong><span>Dice ® 2021 y &quot;Políticas de Gestión - GRUPOVL&quot; dentro de la web de Maquinfra.</span></div></li><li><b class="n">6</b><div><strong>Empleo poco visible</strong><span>Solo un enlace de texto al final. El formulario de postulación no muestra vacantes.</span></div></li></ol><span class="tag">Recreación basada en maquinfra.cl del 5 de octubre de 2026, con sus propias imágenes.</span></div>
+</div>
+<div id="p-despues" role="tabpanel" aria-labelledby="t-despues" hidden style="flex-direction:column;gap:24px">
+<div class="frame"><div class="bar"><i></i><i></i><i></i><span>maquinfra.cl · Propuesta</span></div><div class="site">
+<div class="nav"><img src="img/logo.png" alt="Maquinfra"><ul><li>Servicios</li><li>Proyectos</li><li>Clientes</li><li>Certificaciones</li><li>Contacto</li></ul><a class="btn line" href="#" onclick="return false">Trabaja con nosotros</a><a class="btn red" href="#" onclick="return false">Cotizar</a></div><div class="hero" style="background-image:url(img/ban2.jpg)"><div class="in"><h2>Estructuras metálicas para túneles, telecomunicaciones y minería</h2><p>Diseño, fabricación e instalación desde San Bernardo. Con 4.500 toneladas contratadas de marcos reticulados para la Línea 7 del Metro de Santiago.</p><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn red" href="#" onclick="return false">Cotizar mi proyecto</a><a class="btn white" href="#" onclick="return false">Ver proyectos</a></div></div></div><div class="trust"><div><span><strong>4.500 t contratadas</strong>Línea 7 del Metro de Santiago, en ejecución</span></div><div><span><strong>Más de 1.500 t</strong>Américo Vespucio Oriente I, 2019 a 2022</span></div><div><img src="img/applus.png" alt="Sello Applus ISO 9001, 14001 y 45001" style="background:#fff;border-radius:6px;padding:3px"><span><strong>ISO 9001 · 14001 · 45001</strong>Certificación Applus</span></div></div><section class="s"><h3>Qué fabricamos</h3><p class="lead">Cada línea de producto se explica con el tipo de obra para la que sirve.</p><div class="cards"><div class="card"><img class="ph" src="img/fort.jpg" alt="Marcos reticulados en un túnel"><div class="b"><h4>Fortificación de túneles</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div><div class="card"><img class="ph" src="img/tower.jpg" alt="Torre de telecomunicaciones"><div class="b"><h4>Telecomunicaciones y electricidad</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div><div class="card"><img class="ph" src="img/hopper.jpg" alt="Tolva metálica"><div class="b"><h4>Tolvas y aljibes</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div><div class="card"><img class="ph" src="img/proy.jpg" alt="Estructura metálica en una obra"><div class="b"><h4>Otras estructuras metálicas</h4><a class="btn line" href="#" onclick="return false">Ver servicio</a></div></div></div></section><section class="s alt"><h3>Proyectos destacados</h3><p class="lead">Los datos de la sección Proyectos, llevados a la portada.</p><div class="projects"><div class="card"><div class="b"><span class="pill on">En ejecución</span><h4>Línea 7 Metro de Santiago</h4><dl><dt>Cliente</dt><dd>CRTG, OHL, CRCC</dd><dt>Período</dt><dd>2023 en adelante</dd><dt>Volumen</dt><dd>4.500 t contratadas</dd></dl></div></div><div class="card"><div class="b"><span class="pill done">Concluido</span><h4>Autopista Américo Vespucio Oriente I</h4><dl><dt>Cliente</dt><dd>Constructora Vespucio Oriente S.A.</dd><dt>Período</dt><dd>2019 a 2022</dd><dt>Volumen</dt><dd>Más de 1.500 t</dd></dl></div></div><div class="card"><div class="b"><span class="pill done">Concluido</span><h4>Mina El Teniente</h4><dl><dt>Cliente</dt><dd>Astaldi</dd><dt>Período</dt><dd>2019 a 2023</dd><dt>Volumen</dt><dd>638 t</dd></dl></div></div><div class="card"><div class="b"><span class="pill on">Activo</span><h4>Central Hidroeléctrica Los Lagos</h4><dl><dt>Cliente</dt><dd>Consorcio BOV SpA</dd><dt>Período</dt><dd>2020 en adelante</dd><dt>Volumen</dt><dd>Más de 330 t</dd></dl></div></div><div class="card"><div class="b"><span class="pill done">Concluido</span><h4>Torres de telecomunicación</h4><dl><dt>Cliente</dt><dd>WOM S.A.</dd><dt>Período</dt><dd>2017 a 2018</dd><dt>Volumen</dt><dd>Monopostes y torres autosoportadas</dd></dl></div></div><div class="card"><div class="b"><span class="pill done">Concluido</span><h4>Extensiones Metro (L2, L3, L6)</h4><dl><dt>Cliente</dt><dd>Besalco, OHLA, CRTG</dd><dt>Período</dt><dd>2017 a 2018</dd><dt>Volumen</dt><dd>Más de 100 t</dd></dl></div></div></div></section><section class="s"><h3>Empresas que confían en Maquinfra</h3><div class="logos"><div><img src="img/cl1.png" alt="">Astaldi</div><div><img src="img/cl2.png" alt="">Abengoa</div><div><img src="img/cl3.png" alt="">Besalco Construcciones</div><div><img src="img/cl4.png" alt="">Sacyr</div><div><img src="img/cl5.png" alt="">Consorcio BOV</div><div><img src="img/cl6.png" alt="">Ferrovial Agroman</div><div><img src="img/cl7.png" alt="">Engie</div><div><img src="img/cl8.png" alt="">OHL Construcción</div><div><img src="img/cl9.png" alt="">Echeverría Izquierdo</div><div><img src="img/cl10.png" alt="">Dragados</div><div><img src="img/cl11.png" alt="">CRTG</div><div><img src="img/cl12.png" alt="">OSSA Obras Subterráneas</div><div><img src="img/cl13.png" alt="">Bosch</div><div><img src="img/cl14.png" alt="">EBCO</div><div><img src="img/cl15.png" alt="">WOM</div><div><img src="img/cl16.png" alt="">SBA</div><div><img src="img/cl17.png" alt="">CRCC</div><div><img src="img/cl18.png" alt="">OHLA</div><div><img src="img/cl19.png" alt="">Raylex</div><div><img src="img/mwl.png" alt="">MWL SPA</div></div><span class="tag" style="align-self:flex-start">Los 20 logos de hoy, ahora con nombre. Maquinfra confirma cuáles autoriza mostrar.</span></section><section class="s alt" id="cotizar"><h3>Solicita tu cotización</h3><p class="lead">Un formulario corto en la portada. La solicitud llega a contacto@maquinfra.cl con el tipo de estructura elegido.</p><form class="q" id="fq"><label for="fq-n">Nombre<input id="fq-n" autocomplete="name"></label><label for="fq-e">Empresa o institución<input id="fq-e" autocomplete="organization"></label><label for="fq-m">Correo<input id="fq-m" type="email" autocomplete="email"></label><label for="fq-t">Teléfono<input id="fq-t" type="tel" autocomplete="tel"></label><label for="fq-s" class="full">Tipo de estructura<select id="fq-s"><option>Fortificación de túneles</option><option>Telecomunicaciones y electricidad</option><option>Tolvas y aljibes</option><option>Otras estructuras metálicas</option></select></label><label for="fq-x" class="full">Mensaje<textarea id="fq-x" rows="3"></textarea></label><div class="full" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center"><button class="btn red" type="submit">Solicitar cotización</button><span class="ok" id="fq-ok" role="status"></span></div></form></section><section class="s" id="empleo"><h3>Trabaja en Maquinfra</h3><p class="lead">Sección propia con cargos abiertos y postulación.</p><p style="margin:0"><span class="ph-note">Cargos, beneficios y requisitos: completar con Maquinfra</span></p><div><a class="btn navy" href="#" onclick="return false">Postular ahora</a></div></section><div class="foot"><div><h5>Contacto</h5><p>contacto@maquinfra.cl</p><p><span class="ph-note">Teléfono: completar</span></p></div><div><h5>Ubicación</h5><p>Las Acacias 110, San Bernardo, Chile</p></div><div><h5>Certificaciones</h5><p>Sistema de gestión certificado por Applus: ISO 9001, 14001 y 45001.</p></div><div><h5>Enlaces</h5><p><a href="#" onclick="return false">LinkedIn</a></p><p><a href="#" onclick="return false">Políticas de Gestión</a></p><p>© Maquinfra</p></div></div>
+</div></div>
+<div class="changes"><h2>Qué cambia</h2><ul><li><strong>Portada con respaldo:</strong> cifras reales de obras (4.500 t en la Línea 7 del Metro, más de 1.500 t en Américo Vespucio Oriente I) y sello Applus a la vista.</li><li><strong>Proyectos en la portada:</strong> seis proyectos con cliente, período, estado y volumen, tomados de la propia sección Proyectos.</li><li><strong>Clientes con nombre:</strong> los mismos 20 logos de hoy, con su nombre, y espacio para casos de éxito.</li><li><strong>Cotización y contacto:</strong> formulario corto por tipo de estructura, con teléfono visible.</li><li><strong>Empleo visible y pie al día:</strong> sección propia de empleo y políticas enlazadas sin la marca de otra empresa.</li></ul><p style="margin:12px 0 0;color:var(--muted);font-size:14px">Datos tomados de maquinfra.cl (portada y sección Proyectos) y del sello Applus de su sitio. Hay que confirmarlos con Maquinfra antes de publicar.</p></div>
+</div></div>
+<script>
+(function(){
+var tA=document.getElementById('t-antes'),tD=document.getElementById('t-despues'),pA=document.getElementById('p-antes'),pD=document.getElementById('p-despues');
+function show(d){pA.hidden=d;pD.hidden=!d;pA.style.display=d?'none':'flex';pD.style.display=d?'flex':'none';tA.setAttribute('aria-selected',String(!d));tD.setAttribute('aria-selected',String(d));try{history.replaceState(null,'',d?'#despues':'#antes')}catch(e){}}
+tA.onclick=function(){show(false)};tD.onclick=function(){show(true)};show(location.hash==='#despues');
+var f=document.getElementById('fq');f.addEventListener('submit',function(e){e.preventDefault();document.getElementById('fq-ok').textContent='Esto es una muestra: el formulario real enviará la solicitud a contacto@maquinfra.cl.'});
+})();
+</script>
+</body></html>

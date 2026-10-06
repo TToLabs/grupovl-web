@@ -1,0 +1,329 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Grupo VL Servicios Integrales</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* ===== BASE COMPARTIDA =====
+   UX: una sola base técnica para las cuatro empresas (rendimiento y mantención),
+   pero cada sitio tiene su propio orden, módulo estrella y paleta. Así se rompe el "sitio folleto" idéntico. */
+:root{
+  --bg:#FFFFFF; --bg2:#F4F6F9; --card:#FFFFFF; --ink:#0F172A; --muted:#556175; --line:#E2E8F0; --ring:rgba(15,23,42,.08);
+  --font:'Inter','Helvetica Neue',Arial,sans-serif;
+}
+:root[data-theme="dark"]{--bg:#0A0F1A;--bg2:#0F1626;--card:#121B2D;--ink:#E8EDF5;--muted:#9AA7BB;--line:#1F2B40;--ring:rgba(0,0,0,.4);color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;letter-spacing:-.022em;line-height:1.1;text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:4px}
+.w{max-width:1200px;margin-inline:auto;padding-inline:24px}
+@media (max-width:640px){.w{padding-inline:16px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Header sticky: UX B2B, el botón de cotizar siempre a un clic sin importar el scroll */
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px) saturate(1.5);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.hd.scrolled{border-bottom-color:var(--line);box-shadow:0 6px 24px -12px var(--ring)}
+.hd .w{display:flex;align-items:center;gap:20px;min-height:72px;position:relative}
+.logo{display:flex;align-items:center;background:#fff;border-radius:8px;padding:5px 10px}
+.logo img{height:44px;width:auto;display:block}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{font-size:14.5px;font-weight:500;text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:8px;transition:color .2s,background .2s}
+.nav a:hover{color:var(--ink);background:var(--bg2)}
+.acts{display:flex;align-items:center;gap:8px}
+.icon-btn{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.icon-btn:hover{border-color:var(--muted)}
+.burger{display:none}
+@media (max-width:1000px){.nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 16px}.nav.open{display:flex}.burger{display:grid}.hide-md{display:none!important}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--font);text-decoration:none;border-radius:10px;padding:12px 18px;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s,box-shadow .2s,border-color .2s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn svg{transition:transform .2s}
+.btn:hover svg{transform:translateX(3px)}
+.btn.pri{background:var(--acc);color:var(--acct);box-shadow:0 8px 20px -10px var(--acc)}
+.btn.pri:hover{box-shadow:0 10px 26px -10px var(--acc)}
+.btn.sec{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.sec:hover{border-color:var(--ink)}
+.btn.ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.btn.ghost:hover{background:rgba(255,255,255,.16)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--link);margin:0 0 14px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--acc)}
+section.s{padding-block:96px}
+section.s.alt{background:var(--bg2)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 48px;margin-bottom:44px}
+.head h2{font-size:clamp(30px,3.6vw,46px);font-weight:700;max-width:18ch}
+.head p{margin:0;color:var(--muted);max-width:48ch}
+@media (max-width:760px){section.s{padding-block:64px}.head{margin-bottom:28px}}
+
+/* Logos monocromáticos en carrusel: UX, prueba social sin ruido visual; color al pasar el mouse */
+.marq{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:16px;width:max-content;animation:mq 50s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(calc(-50% - 8px))}}
+.lg{flex:none;width:170px;height:92px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.lg img{max-width:100%;max-height:56px;object-fit:contain;filter:grayscale(1) contrast(1.1);opacity:.7;transition:filter .3s,opacity .3s}
+.lg:hover img{filter:none;opacity:1}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}.track .dup{display:none}*{transition:none!important}}
+
+/* Contacto */
+.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.contact h2{font-size:clamp(30px,3.6vw,44px);font-weight:700}
+.contact p{color:var(--muted)}
+.cl{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+.cl li{display:flex;gap:12px;align-items:center}
+.cl li span.i{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--bg2);color:var(--link);flex:none}
+form.fm{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px;box-shadow:0 20px 50px -30px var(--ring)}
+form.fm label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;min-width:0}
+form.fm input,form.fm select,form.fm textarea{font:400 15px var(--font);padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%;min-width:0;transition:border-color .2s,box-shadow .2s}
+form.fm input:focus,form.fm select:focus,form.fm textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 20%,transparent)}
+form.fm .full{grid-column:1/-1}
+form.fm .row{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+form.fm small{color:var(--muted);font-size:12.5px}
+.ok{grid-column:1/-1;color:#10915A;font-weight:600;font-size:14px}
+@media (max-width:860px){.contact{grid-template-columns:1fr;gap:32px}form.fm{grid-template-columns:1fr;padding:20px}}
+
+/* Footer limpio: UX, solo datos útiles; nada de texto de relleno */
+footer.ft{background:var(--foot);color:#B9C3D3;font-size:14px}
+footer .top{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:40px;padding-block:72px 48px}
+footer h4{color:#fff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+footer p{margin:0 0 8px}footer a{text-decoration:none}footer a:hover{color:#fff}
+footer .bt{border-top:1px solid rgba(255,255,255,.1);padding-block:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px;color:#7F8BA0}
+footer .grp{display:flex;flex-wrap:wrap;gap:6px 18px}
+@media (max-width:860px){footer .top{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .top{grid-template-columns:1fr}}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:60;max-width:calc(100% - 32px);box-shadow:0 10px 30px -10px rgba(0,0,0,.4)}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.mock{font-size:12.5px;text-align:center;color:var(--muted);background:var(--bg2);border-top:1px solid var(--line);padding:12px 16px;margin:0}
+[hidden]{display:none!important}
+
+/* ===== Componentes comunes ===== */
+.hide-sm{display:inline-flex}
+@media (max-width:560px){.hide-sm{display:none}}
+.hero{position:relative;color:#fff;background-color:#0b1220;background-image:var(--ov),var(--hero);background-size:cover;background-position:center;isolation:isolate}
+.hero .w{padding-block:clamp(64px,10vw,140px) clamp(56px,8vw,110px)}
+.hero h1{font-size:clamp(36px,5.4vw,68px);font-weight:800;max-width:17ch;letter-spacing:-.03em}
+.hero .lead{font-size:clamp(17px,1.5vw,20px);max-width:58ch;color:rgba(255,255,255,.88);margin:22px 0 32px}
+.hero .eyebrow{color:#fff}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-top:-44px;position:relative;z-index:2;box-shadow:0 24px 50px -30px var(--ring)}
+.facts>div{padding:26px 28px;border-left:1px solid var(--line)}
+.facts>div:first-child{border-left:0}
+.facts b{display:block;font-size:clamp(28px,3.2vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--link);line-height:1.1}
+.facts span{display:block;font-size:14px;color:var(--muted);margin-top:6px}
+@media (max-width:760px){.facts{grid-template-columns:1fr}.facts>div{border-left:0;border-top:1px solid var(--line);padding:18px 20px}.facts>div:first-child{border-top:0}}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:980px){.g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.g4,.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -24px var(--ring);border-color:color-mix(in srgb,var(--acc) 55%,var(--line))}
+.card .body{padding:22px}
+.card h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-weight:600;font-size:14.5px;color:var(--link);text-decoration:none}
+.more svg{transition:transform .2s}.card:hover .more svg,.more:hover svg{transform:translateX(4px)}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:20px}
+.steps li{list-style:none;counter-increment:s;border-top:2px solid var(--line);padding-top:18px}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-weight:800;font-size:14px;color:var(--link);letter-spacing:.1em;margin-bottom:8px}
+.steps b{display:block;font-size:19px;margin-bottom:6px}.steps p{margin:0;color:var(--muted);font-size:15px}
+ul.steps{padding:0;margin:0}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+/* Pestañas / interruptor segmentado */
+.seg{display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;max-width:100%;flex-wrap:wrap}
+.seg [role=tab]{font:600 15px var(--font);border:0;background:transparent;color:var(--muted);padding:11px 18px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,color .2s,box-shadow .2s}
+.seg [role=tab]:hover{color:var(--ink)}
+.seg [role=tab][aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 2px 10px -4px var(--ring),inset 0 0 0 1px var(--line)}
+.panel{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:44px;align-items:center;margin-top:32px}
+.panel .ph{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--bg2)}
+.panel .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.panel:hover .ph img{transform:scale(1.03)}
+.panel h3{font-size:clamp(24px,2.6vw,32px);font-weight:700;margin-bottom:12px}
+.panel p{color:var(--muted);margin:0 0 18px}
+.tick{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px}
+.tick li{display:flex;gap:10px;align-items:flex-start}
+.tick li svg{flex:none;margin-top:3px;color:var(--link)}
+@media (max-width:860px){.panel{grid-template-columns:1fr;gap:24px}}
+
+/* Grupo VL: azul corporativo, gris pizarra y blanco; ámbar de la marca solo como acento puntual */
+:root{--acc:#1F4E9C;--acct:#fff;--link:#1F4E9C;--foot:#0B1B38;--amber:#E8A100;--ov:linear-gradient(180deg,rgba(11,27,56,.72),rgba(11,27,56,.88))}
+:root[data-theme="dark"]{--acc:#4C86E0;--link:#8DB4F2;--foot:#060E20}
+.hero.vid .w{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center}
+.vbox{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/10;border:1px solid rgba(255,255,255,.25);box-shadow:0 30px 60px -30px rgba(0,0,0,.7);background:#08122A}
+.vbox img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:transform .6s,opacity .3s}
+.vbox:hover img{transform:scale(1.04);opacity:1}
+.vbox button{position:absolute;inset:0;margin:auto;width:76px;height:76px;border-radius:50%;border:0;background:#fff;color:#0B1B38;display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 0 rgba(255,255,255,.6);animation:pulse 2.4s infinite}
+.vbox button:hover{transform:scale(1.08)}
+.vbox button svg{margin-left:4px}
+.vbox .cap{position:absolute;left:14px;bottom:12px;right:14px;font-size:13px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+@media (prefers-reduced-motion:reduce){.vbox button{animation:none}}
+@media (max-width:900px){.hero.vid .w{grid-template-columns:1fr;gap:32px}}
+.num{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.cnt{display:grid;gap:16px}
+.cnt .k{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.cnt .k b{font-size:clamp(44px,6vw,72px);font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--link);min-width:4.6ch;font-variant-numeric:tabular-nums}
+.cnt .k span{color:var(--muted);font-size:16px}
+.mapbox{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.mapbox svg{width:100%;height:auto;max-height:520px;display:block}
+.mapbox .land{fill:var(--bg2);stroke:var(--line);stroke-width:1.5}
+.dot{cursor:pointer}
+.dot circle.c{fill:var(--acc);stroke:var(--card);stroke-width:3;transition:r .2s}
+.dot.p circle.c{fill:var(--card);stroke:var(--acc);stroke-width:2.5}
+.dot:hover circle.c,.dot:focus circle.c,.dot.on circle.c{r:11}
+.dot:focus{outline:none}
+.dot:focus-visible circle.c{stroke:var(--amber)}
+.rinfo h3{font-size:22px;margin-bottom:6px}.rinfo p{margin:0;color:var(--muted);font-size:15px}
+.rinfo .badge{margin-top:12px}
+.lg2{display:flex;gap:14px;font-size:12.5px;color:var(--muted);margin-top:14px;flex-wrap:wrap}
+.lg2 i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--acc);margin-right:6px}
+.lg2 i.p{background:var(--card);border:2px solid var(--acc);width:11px;height:11px}
+@media (max-width:900px){.num{grid-template-columns:1fr;gap:32px}}
+@media (max-width:520px){.mapbox{grid-template-columns:100px minmax(0,1fr);padding:16px}}
+.co{display:flex;flex-direction:column;justify-content:space-between;min-height:190px}
+.co .tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--link)}
+.co.card{padding:22px;text-decoration:none}
+.co h3{font-size:22px;margin:8px 0}
+.co img{height:34px;width:auto;object-fit:contain;align-self:flex-start;background:#fff;border-radius:6px;padding:3px 6px}
+</style>
+<div id="top"></div>
+<header class="hd"><div class="w">
+<a class="logo" href="#top" aria-label="Grupo VL, inicio"><img src="img/v/logo.png" alt="Grupo VL"></a>
+<nav class="nav" id="nav" aria-label="Principal"><a href="#empresas">Empresas del grupo</a><a href="#cifras">Cifras</a><a href="#clientes">Clientes</a><a href="#metodo">Cómo trabajamos</a><a href="#cotizar">Contacto</a></nav>
+<div class="acts"><a class="btn pri hide-sm" href="#cotizar">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><button class="icon-btn burger" id="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="nav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+</div></header>
+
+<!-- Hero con video: UX B2B, el video da rostro humano al grupo. Mientras no exista el video real, queda un póster con botón de reproducción (placeholder) -->
+<section class="hero vid" style="--hero:url(img/v/ban7.jpg)"><div class="w">
+<div><p class="eyebrow">Grupo empresarial · servicios integrales</p>
+<h1>Un solo socio para los servicios que tu operación necesita</h1>
+<p class="lead">Aseo, seguridad privada, gestión de residuos, áreas verdes y estructuras metálicas, a través de empresas especializadas del grupo.</p>
+<div class="cta"><a class="btn pri" href="#cotizar" style="--acc:#fff;--acct:#0B1B38">Solicitar cotización <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn ghost" href="#empresas">Conocer las empresas</a></div></div>
+<div class="vbox"><img src="img/v/oficinas.jpg" alt="Equipo de Grupo VL en terreno"><button type="button" aria-label="Reproducir video corporativo" data-say="Muestra: aquí se reproduciría el video corporativo del grupo (por producir)."><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg></button><span class="cap">Video corporativo · espacio reservado</span></div>
+</div></section>
+
+<!-- Empresas del grupo: es la pregunta número uno de un comprador nuevo ("¿qué hacen y quién lo presta?") -->
+<section class="s" id="empresas"><div class="w">
+<div class="head"><div><p class="eyebrow">Empresas del grupo</p><h2>Un grupo, varias especialidades</h2></div><p>Cada servicio lo presta una empresa con su propio equipo y experiencia. Tú tratas con un solo contacto comercial.</p></div>
+<div class="grid g3">
+<a class="card co" href="#cotizar" data-svc="Seguridad privada"><div><img src="img/s/logo.png" alt="SUAT"><h3>SUAT</h3><p>Seguridad privada: guardias, supervisión y apoyo tecnológico.</p></div><span class="more">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="#cotizar" data-svc="Gestión de residuos"><div><img src="img/t/logo.png" alt="Tresur"><h3>Tresur</h3><p>Residuos, áreas verdes y limpieza industrial.</p></div><span class="more">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="#cotizar" data-svc="Estructuras metálicas"><div><img src="img/m/logo.png" alt="Maquinfra"><h3>Maquinfra</h3><p>Estructuras metálicas para túneles, telecomunicaciones y minería.</p></div><span class="more">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="#cotizar" data-svc="Aseo industrial y de oficinas"><div><span class="tag">Aseo</span><h3>Maxilimpio</h3><p>Limpieza diaria y especializada, incluida limpieza en altura.</p></div><span class="more">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="#cotizar" data-svc="Capacitación"><div><span class="tag">Capacitación</span><h3>Captotal y Ceducap</h3><p>Capacitación para personas y empresas.</p></div><span class="more">Consultar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="#metodo"><div><span class="tag">Un solo contacto</span><h3>Propuesta única</h3><p>Aunque intervengan varias empresas, recibes una sola propuesta.</p></div><span class="more">Cómo trabajamos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+</div></div></section>
+
+<!-- MÓDULO ESTRELLA: contadores animados + mapa de Chile. UX: números grandes dan credibilidad en 3 segundos; el mapa responde "¿llegan a mi región?" -->
+<section class="s alt" id="cifras"><div class="w">
+<div class="head"><div><p class="eyebrow">Grupo VL en cifras</p><h2>Presencia en el país</h2></div><p>Toca un punto del mapa para ver el detalle.</p></div>
+<div class="num">
+<div class="cnt">
+<div class="k"><b data-to="1000" data-pre="+">+1.000</b><span>trabajadores en el grupo<br><small>La web dice ~1.000 y LinkedIn 1.500: confirmar la cifra oficial.</small></span></div>
+<div class="k"><b data-to="8">8</b><span>regiones con presencia</span></div>
+<div class="k"><b data-to="60" data-pre="+">+60</b><span>clientes en el país</span></div>
+</div>
+<div class="mapbox">
+<svg viewBox="20 0 80 600" role="img" aria-label="Mapa esquemático de Chile con regiones">
+<path class="land" d="M52 6 L78 10 L76 50 L82 100 L74 150 L80 200 L72 250 L78 300 L68 350 L74 400 L62 450 L68 500 L54 555 L40 592 L34 560 L46 505 L38 455 L46 405 L36 355 L46 305 L36 255 L46 205 L38 155 L46 105 L38 55 Z"/>
+<g id="dots"></g>
+</svg>
+<div class="rinfo" aria-live="polite"><h3 id="rn">Región Metropolitana</h3><p id="rt">Casa matriz en Santiago, Arturo Prat 1370.</p><span class="badge" id="rb">Presencia confirmada por clientes</span>
+<div class="lg2"><span><i></i>Con clientes visibles hoy</span><span><i class="p"></i>Por confirmar (ejemplo)</span></div></div>
+</div></div></div></section>
+
+<section class="s" id="clientes"><div class="w">
+<div class="head"><div><p class="eyebrow">Clientes</p><h2>Quienes ya trabajan con el grupo</h2></div><p>Salud, Estado, municipios, universidades y empresas.</p></div></div>
+<div class="marq"><div class="track"><div class="lg" title="Hospital San Borja Arriarán"><img src="img/v/cl-arriaran.jpg" alt="Hospital San Borja Arriarán" loading="lazy"></div><div class="lg" title="Hospital El Pino"><img src="img/v/cl-pino.jpg" alt="Hospital El Pino" loading="lazy"></div><div class="lg" title="SAG"><img src="img/v/cl-sag.jpg" alt="SAG" loading="lazy"></div><div class="lg" title="Sernatur"><img src="img/v/cl-sernatur.jpg" alt="Sernatur" loading="lazy"></div><div class="lg" title="CORFO"><img src="img/v/cl-corfo.jpg" alt="CORFO" loading="lazy"></div><div class="lg" title="SENCE"><img src="img/v/cl-sence.jpg" alt="SENCE" loading="lazy"></div><div class="lg" title="Concepción"><img src="img/v/cl-concepcion.jpg" alt="Concepción" loading="lazy"></div><div class="lg" title="Universidad Diego Portales"><img src="img/v/cl-udp.jpg" alt="Universidad Diego Portales" loading="lazy"></div><div class="lg" title="Universidad de Valparaíso"><img src="img/v/cl-univalparaiso.jpg" alt="Universidad de Valparaíso" loading="lazy"></div><div class="lg" title="Universidad de Talca"><img src="img/v/cl-talca.jpg" alt="Universidad de Talca" loading="lazy"></div><div class="lg" title="Logicalis"><img src="img/v/cl-logicalis.jpg" alt="Logicalis" loading="lazy"></div><div class="lg" title="Sacyr"><img src="img/v/cl-02.png" alt="Sacyr" loading="lazy"></div><div class="lg" title="CHC"><img src="img/v/cl-06.png" alt="CHC" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-arriaran.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-pino.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-sag.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-sernatur.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-corfo.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-sence.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-concepcion.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-udp.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-univalparaiso.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-talca.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-logicalis.jpg" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-02.png" alt="" loading="lazy"></div><div class="lg dup" aria-hidden="true"><img src="img/v/cl-06.png" alt="" loading="lazy"></div></div></div>
+</section>
+
+<section class="s alt" id="metodo"><div class="w">
+<div class="head"><div><p class="eyebrow">Cómo trabajamos</p><h2>Una propuesta, aunque intervengan varias empresas</h2></div></div>
+<ul class="steps"><li><b>Conversamos</b><p>Entendemos qué necesitas y qué empresas del grupo participan.</p></li><li><b>Proponemos</b><p>Una sola propuesta por escrito.</p></li><li><b>Operamos</b><p>Un contacto comercial acompaña todo el servicio.</p></li></ul>
+</div></section>
+
+<section class="s" id="cotizar"><div class="w contact">
+<div><p class="eyebrow">Cotizar</p><h2>Hablemos de tu proyecto</h2><p>Cuéntanos qué necesitas. Si participan varias empresas del grupo, recibirás una sola propuesta.</p>
+<ul class="cl"><li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 0-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span>+56 2 2363 5000</li><li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>comercial@grupovl.cl</li><li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>Arturo Prat 1370, Santiago</li></ul></div>
+<!-- UX B2B: 6 campos, con el servicio preseleccionable, para que comercial reciba la solicitud ya clasificada -->
+<form class="fm" id="fm" data-mail="comercial@grupovl.cl" novalidate>
+<label for="f1">Nombre<input id="f1" autocomplete="name"></label><label for="f2">Empresa o institución<input id="f2" autocomplete="organization"></label>
+<label for="f3">Correo corporativo<input id="f3" type="email" autocomplete="email"></label><label for="f4">Teléfono<input id="f4" type="tel" autocomplete="tel"></label>
+<label for="f5" class="full">Servicio<select id="f5"><option>Aseo industrial y de oficinas</option><option>Seguridad privada</option><option>Gestión de residuos</option><option>Áreas verdes</option><option>Estructuras metálicas</option><option>Capacitación</option><option>Varios servicios</option></select></label>
+<label for="f6" class="full">¿Qué necesitas?<textarea id="f6" rows="4" placeholder="Lugar, alcance y plazos"></textarea></label>
+<div class="row"><small>Te responde un ejecutivo en horario hábil.</small><button class="btn pri" type="submit">Solicitar cotización <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><div class="ok" id="fok" role="status"></div>
+</form></div></section>
+<footer class="ft"><div class="w"><div class="top">
+<div><span class="logo" style="display:inline-flex"><img src="img/v/logo.png" alt="Grupo VL"></span><p style="margin-top:16px;max-width:34ch">Sistema de gestión certificado por Applus: ISO 9001, ISO 14001 e ISO 45001.</p></div>
+<div><h4>Contacto</h4><p>+56 2 2363 5000</p><p>comercial@grupovl.cl</p></div>
+<div><h4>Ubicación</h4><p>Arturo Prat 1370, Santiago</p><p>Lunes a jueves 09:00 a 17:00 · Viernes 09:00 a 15:00</p></div>
+<div><h4>Empresa</h4><p><a href="#servicios">Servicios</a></p><p><a href="#" data-say="Muestra: aquí se abre Trabaja con nosotros.">Trabaja con nosotros</a></p><p><a href="#" data-say="Muestra: enlace a las Políticas de Gestión en el dominio oficial.">Políticas de gestión</a></p></div>
+</div>
+<div class="bt"><div class="grp"><span>Grupo VL:</span><span>SUAT</span><span>Tresur</span><span>Maquinfra</span><span>Maxilimpio</span><span>Captotal y Ceducap</span></div><span>© Grupo VL</span></div></div></footer>
+<p class="mock">Maqueta de diseño con fotos y datos publicados hoy por Grupo VL. Lo marcado "Ejemplo" debe validarse antes de publicar.</p>
+
+<div id="toast" role="status"></div>
+<script>
+(function(){
+ var R=document.documentElement;
+ function getT(){try{return localStorage.getItem('theme')}catch(e){return null}}
+ function setT(t){if(t){R.setAttribute('data-theme',t)}try{t?localStorage.setItem('theme',t):0}catch(e){}paintT()}
+ function isDark(){var t=R.getAttribute('data-theme');if(t)return t==='dark';return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches}
+ function paintT(){var b=document.getElementById('theme');if(!b)return;var d=isDark();b.innerHTML=d?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';b.setAttribute('aria-label',d?'Cambiar a modo claro':'Cambiar a modo oscuro')}
+ 
+ window.addEventListener('DOMContentLoaded',function(){
+  
+  var hd=document.querySelector('.hd');function sc(){hd.classList.toggle('scrolled',window.scrollY>8)}window.addEventListener('scroll',sc,{passive:true});sc();
+  var bu=document.getElementById('burger'),nv=document.getElementById('nav');
+  bu.onclick=function(){var o=nv.classList.toggle('open');bu.setAttribute('aria-expanded',String(o))};
+  Array.prototype.forEach.call(nv.querySelectorAll('a'),function(a){a.addEventListener('click',function(){nv.classList.remove('open');bu.setAttribute('aria-expanded','false')})});
+  var toast=document.getElementById('toast');
+  window.say=function(m){toast.textContent=m;toast.classList.add('on');clearTimeout(window.say.t);window.say.t=setTimeout(function(){toast.classList.remove('on')},3000)};
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-say]');if(a){e.preventDefault();window.say(a.getAttribute('data-say'))}});
+  var f=document.getElementById('fm');if(f)f.addEventListener('submit',function(e){e.preventDefault();document.getElementById('fok').textContent='Muestra: en el sitio real la solicitud llegaría a '+f.dataset.mail+'.'});
+  /* Contadores: el valor final ya está en el HTML (se ve aunque no haya animación); solo se anima al entrar en pantalla */
+  var red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!red&&'IntersectionObserver' in window){
+   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;io.unobserve(en.target);var el=en.target,to=+el.dataset.to,pre=el.dataset.pre||'',suf=el.dataset.suf||'',t0=performance.now(),d=1200;
+    function fmt(n){return n.toLocaleString('es-CL')}
+    function st(t){var p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);el.textContent=pre+fmt(Math.round(to*e))+suf;if(p<1)requestAnimationFrame(st)}requestAnimationFrame(st)})},{threshold:.4});
+   Array.prototype.forEach.call(document.querySelectorAll('[data-to]'),function(el){io.observe(el)});
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-tabs]'),function(g){
+   var tabs=[].slice.call(g.querySelectorAll('[role=tab]'));
+   function sel(t,f){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;var p=document.getElementById(x.getAttribute('aria-controls'));if(p)p.hidden=!on});if(f)t.focus();if(g.dataset.onsel&&window[g.dataset.onsel])window[g.dataset.onsel](t)}
+   tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(t)});t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight')n=tabs[(i+1)%tabs.length];if(k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();sel(n,true)}})});
+  });
+  if(window.PAGE)window.PAGE();
+ });
+})();
+
+
+window.PAGE=function(){
+ document.querySelectorAll('[data-svc]').forEach(function(a){a.addEventListener('click',function(){var s=document.getElementById('f5');if(s)s.value=a.dataset.svc})});
+ /* Regiones: las 5 primeras se deducen de clientes visibles (RM, Valparaíso, O'Higgins, Maule, Biobío); las otras 3 son ejemplo */
+ var R=[
+  ['Región de Coquimbo',30,1,'Ejemplo: ubicación por confirmar con el grupo.'],
+  ['Región de Valparaíso',33.0,0,'Clientes como la Municipalidad de Nogales y la Universidad de Valparaíso.'],
+  ['Región Metropolitana',33.5,0,'Casa matriz en Santiago, Arturo Prat 1370.'],
+  ['Región de O’Higgins',34.3,0,'Clientes como Machalí y Requínoa.'],
+  ['Región del Maule',35.4,0,'Cliente: Universidad de Talca.'],
+  ['Región del Biobío',37.0,0,'Cliente: Municipalidad de Concepción.'],
+  ['Región de La Araucanía',38.7,1,'Ejemplo: ubicación por confirmar con el grupo.'],
+  ['Región de Los Lagos',41.5,1,'Ejemplo: ubicación por confirmar con el grupo.']
+ ];
+ var g=document.getElementById('dots'),NS='http://www.w3.org/2000/svg';
+ function y(l){return 20+(l-18)/38*560}
+ R.forEach(function(r,i){
+  var e=document.createElementNS(NS,'g');e.setAttribute('class','dot'+(r[2]?' p':''));e.setAttribute('tabindex','0');e.setAttribute('role','button');e.setAttribute('aria-label',r[0]);
+  var c=document.createElementNS(NS,'circle');c.setAttribute('class','c');c.setAttribute('r','8');c.setAttribute('cx',String(58+(i%2?8:-8)));c.setAttribute('cy',String(y(r[1])+(r[0]==='Región Metropolitana'?10:0)));
+  e.appendChild(c);g.appendChild(e);
+  function show(){document.querySelectorAll('.dot').forEach(function(d){d.classList.remove('on')});e.classList.add('on');document.getElementById('rn').textContent=r[0];document.getElementById('rt').textContent=r[3];document.getElementById('rb').textContent=r[2]?'Ejemplo, por confirmar':'Presencia confirmada por clientes'}
+  e.addEventListener('click',show);e.addEventListener('mouseenter',show);e.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();show()}});
+ });
+};
+
+</script>
+
+</body></html>
