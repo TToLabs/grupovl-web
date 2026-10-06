@@ -186,11 +186,22 @@ ul.steps{padding:0;margin:0}
 .co.card{padding:22px;text-decoration:none}
 .co h3{font-size:22px;margin:8px 0}
 .co img{height:34px;width:auto;object-fit:contain;align-self:flex-start;background:#fff;border-radius:6px;padding:3px 6px}
+/* Cotizar otros servicios + licitaciones */
+fieldset.opt{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0;min-width:0}
+fieldset.opt legend{font-size:13px;font-weight:600;padding-inline:6px}
+.chks{display:flex;flex-wrap:wrap;gap:8px}
+form.fm label.chk{flex-direction:row;align-items:center;gap:8px;font-weight:500;font-size:14px;border:1px solid var(--line);border-radius:99px;padding:7px 12px;cursor:pointer;background:var(--bg)}
+form.fm label.chk input{width:auto;accent-color:var(--acc)}
+form.fm label.chk:has(input:checked){border-color:var(--acc);background:color-mix(in srgb,var(--acc) 10%,var(--bg))}
+.lic{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;align-items:start;margin-top:40px}
+@media (max-width:900px){.lic{grid-template-columns:1fr}}
+.grp a{color:inherit;text-decoration:none}.grp a:hover{color:#fff}
+
 </style>
 <div id="top"></div>
 <header class="hd"><div class="w">
 <a class="logo" href="#top" aria-label="Grupo VL, inicio"><img src="img/v/logo.png" alt="Grupo VL"></a>
-<nav class="nav" id="nav" aria-label="Principal"><a href="#empresas">Empresas del grupo</a><a href="#cifras">Cifras</a><a href="#clientes">Clientes</a><a href="#metodo">Cómo trabajamos</a><a href="#cotizar">Contacto</a></nav>
+<nav class="nav" id="nav" aria-label="Principal"><a href="#empresas">Empresas del grupo</a><a href="#cifras">Cifras</a><a href="#clientes">Clientes</a><a href="#metodo">Cómo trabajamos</a><a href="#licitaciones">Licitaciones</a><a href="#cotizar">Contacto</a></nav>
 <div class="acts"><a class="btn pri hide-sm" href="#cotizar">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><button class="icon-btn burger" id="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="nav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
 </div></header>
 
@@ -207,12 +218,12 @@ ul.steps{padding:0;margin:0}
 <section class="s" id="empresas"><div class="w">
 <div class="head"><div><p class="eyebrow">Empresas del grupo</p><h2>Un grupo, varias especialidades</h2></div><p>Cada servicio lo presta una empresa con su propio equipo y experiencia. Tú tratas con un solo contacto comercial.</p></div>
 <div class="grid g3">
-<a class="card co" href="#cotizar" data-svc="Seguridad privada"><div><img src="img/s/logo.png" alt="SUAT"><h3>SUAT</h3><p>Seguridad privada: guardias, supervisión y apoyo tecnológico.</p></div><span class="more">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-<a class="card co" href="#cotizar" data-svc="Gestión de residuos"><div><img src="img/t/logo.png" alt="Tresur"><h3>Tresur</h3><p>Residuos, áreas verdes y limpieza industrial.</p></div><span class="more">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-<a class="card co" href="#cotizar" data-svc="Estructuras metálicas"><div><img src="img/m/logo.png" alt="Maquinfra"><h3>Maquinfra</h3><p>Estructuras metálicas para túneles, telecomunicaciones y minería.</p></div><span class="more">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-<a class="card co" href="#cotizar" data-svc="Aseo industrial y de oficinas"><div><span class="tag">Aseo</span><h3>Maxilimpio</h3><p>Limpieza diaria y especializada, incluida limpieza en altura.</p></div><span class="more">Cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-<a class="card co" href="#cotizar" data-svc="Capacitación"><div><span class="tag">Capacitación</span><h3>Captotal y Ceducap</h3><p>Capacitación para personas y empresas.</p></div><span class="more">Consultar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-<a class="card co" href="#metodo"><div><span class="tag">Un solo contacto</span><h3>Propuesta única</h3><p>Aunque intervengan varias empresas, recibes una sola propuesta.</p></div><span class="more">Cómo trabajamos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="../suat/"><div><img src="img/s/logo.png" alt="SUAT"><h3>SUAT</h3><p>Seguridad privada: guardias, supervisión y apoyo tecnológico.</p></div><span class="more">Ver SUAT y cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="../tresur/"><div><img src="img/t/logo.png" alt="Tresur"><h3>Tresur</h3><p>Residuos, áreas verdes y limpieza industrial.</p></div><span class="more">Ver Tresur y cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="../maquinfra/"><div><img src="img/m/logo.png" alt="Maquinfra"><h3>Maquinfra</h3><p>Estructuras metálicas para túneles, telecomunicaciones y minería.</p></div><span class="more">Ver Maquinfra y cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="../maxilimpio/"><div><span class="tag">Aseo</span><h3>Maxilimpio</h3><p>Limpieza diaria y especializada, incluida limpieza en altura.</p></div><span class="more">Ver Maxilimpio y cotizar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="../captotal-ceducap/"><div><span class="tag">Capacitación</span><h3>Captotal y Ceducap</h3><p>Capacitación para personas y empresas.</p></div><span class="more">Ver capacitación y consultar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="card co" href="#cotizar" data-svc="Varios servicios"><div><span class="tag">Un solo contacto</span><h3>Cotizar otros servicios</h3><p>Combina servicios de varias empresas y recibe una sola propuesta.</p></div><span class="more">Armar mi cotización <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
 </div></div></section>
 
 <!-- MÓDULO ESTRELLA: contadores animados + mapa de Chile. UX: números grandes dan credibilidad en 3 segundos; el mapa responde "¿llegan a mi región?" -->
@@ -243,6 +254,33 @@ ul.steps{padding:0;margin:0}
 <ul class="steps"><li><b>Conversamos</b><p>Entendemos qué necesitas y qué empresas del grupo participan.</p></li><li><b>Proponemos</b><p>Una sola propuesta por escrito.</p></li><li><b>Operamos</b><p>Un contacto comercial acompaña todo el servicio.</p></li></ul>
 </div></section>
 
+
+<!-- Licitaciones: muchos clientes del grupo son organismos públicos; esta sección responde "¿pueden presentar propuesta a mi licitación?" -->
+<section class="s alt" id="licitaciones"><div class="w">
+<div class="head"><div><p class="eyebrow">Licitaciones</p><h2>Propuestas para tus licitaciones</h2></div><p>Si tu institución o empresa licita servicios de aseo, seguridad, residuos, áreas verdes, estructuras o capacitación, el grupo prepara una propuesta técnica y económica completa.</p></div>
+<ul class="steps" style="--n:3">
+<li><b>Envíanos las bases</b><p>Indica el ID de la licitación, el servicio y la fecha de cierre.</p></li>
+<li><b>Evaluamos y respondemos</b><p>Revisamos requisitos y plazos, y te confirmamos si podemos participar.</p></li>
+<li><b>Una sola propuesta</b><p>Aunque intervengan varias empresas del grupo, presentamos una propuesta única con su documentación.</p></li>
+</ul>
+<div class="lic">
+<div class="card" style="padding:26px"><h3>Documentos que acompañan cada propuesta</h3>
+<ul class="tick">
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Sistema de gestión certificado por Applus: ISO 9001, 14001 y 45001</span></li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Política de gestión integrada</span></li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Experiencia y clientes en instituciones públicas, municipios y salud</span></li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Antecedentes legales y tributarios <span class="badge">Ejemplo, por validar</span></span></li>
+</ul>
+<a class="btn sec" href="#" data-say="Muestra: aquí se descargaría la carpeta de antecedentes para licitaciones (por preparar).">Descargar carpeta de antecedentes</a></div>
+<form class="fm" id="fl" data-mail="comercial@grupovl.cl" novalidate>
+<label for="l1">Organismo o empresa<input id="l1" autocomplete="organization"></label><label for="l2">Persona de contacto<input id="l2" autocomplete="name"></label>
+<label for="l3">Correo<input id="l3" type="email" autocomplete="email"></label><label for="l4">ID de la licitación<input id="l4" placeholder="Ej.: ID de Mercado Público"></label>
+<label for="l5">Fecha de cierre<input id="l5" type="date"></label><label for="l6">Servicio<select id="l6"><option>Aseo industrial y de oficinas</option><option>Seguridad privada</option><option>Gestión de residuos</option><option>Áreas verdes</option><option>Estructuras metálicas</option><option>Capacitación</option><option>Varios servicios</option></select></label>
+<label for="l7" class="full">Bases de la licitación<input id="l7" type="file"></label>
+<div class="row"><small>Un ejecutivo revisa las bases y te responde en horario hábil.</small><button class="btn pri" type="submit">Solicitar propuesta <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><div class="ok" id="flok" role="status"></div>
+</form>
+</div>
+</div></section>
 <section class="s" id="cotizar"><div class="w contact">
 <div><p class="eyebrow">Cotizar</p><h2>Hablemos de tu proyecto</h2><p>Cuéntanos qué necesitas. Si participan varias empresas del grupo, recibirás una sola propuesta.</p>
 <ul class="cl"><li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 0-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span>+56 2 2363 5000</li><li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>comercial@grupovl.cl</li><li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>Arturo Prat 1370, Santiago</li></ul></div>
@@ -251,16 +289,16 @@ ul.steps{padding:0;margin:0}
 <label for="f1">Nombre<input id="f1" autocomplete="name"></label><label for="f2">Empresa o institución<input id="f2" autocomplete="organization"></label>
 <label for="f3">Correo corporativo<input id="f3" type="email" autocomplete="email"></label><label for="f4">Teléfono<input id="f4" type="tel" autocomplete="tel"></label>
 <label for="f5" class="full">Servicio<select id="f5"><option>Aseo industrial y de oficinas</option><option>Seguridad privada</option><option>Gestión de residuos</option><option>Áreas verdes</option><option>Estructuras metálicas</option><option>Capacitación</option><option>Varios servicios</option></select></label>
-<label for="f6" class="full">¿Qué necesitas?<textarea id="f6" rows="4" placeholder="Lugar, alcance y plazos"></textarea></label>
+<fieldset class="full opt"><legend>¿Quieres cotizar otros servicios a la vez?</legend><div class="chks"><label class="chk"><input type="checkbox" name="extra" value="Aseo industrial y de oficinas"> Aseo industrial y de oficinas</label><label class="chk"><input type="checkbox" name="extra" value="Seguridad privada"> Seguridad privada</label><label class="chk"><input type="checkbox" name="extra" value="Gestión de residuos"> Gestión de residuos</label><label class="chk"><input type="checkbox" name="extra" value="Áreas verdes"> Áreas verdes</label><label class="chk"><input type="checkbox" name="extra" value="Estructuras metálicas"> Estructuras metálicas</label><label class="chk"><input type="checkbox" name="extra" value="Capacitación"> Capacitación</label></div></fieldset><label for="f6" class="full">¿Qué necesitas?<textarea id="f6" rows="4" placeholder="Lugar, alcance y plazos"></textarea></label>
 <div class="row"><small>Te responde un ejecutivo en horario hábil.</small><button class="btn pri" type="submit">Solicitar cotización <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><div class="ok" id="fok" role="status"></div>
 </form></div></section>
 <footer class="ft"><div class="w"><div class="top">
 <div><span class="logo" style="display:inline-flex"><img src="img/v/logo.png" alt="Grupo VL"></span><p style="margin-top:16px;max-width:34ch">Sistema de gestión certificado por Applus: ISO 9001, ISO 14001 e ISO 45001.</p></div>
 <div><h4>Contacto</h4><p>+56 2 2363 5000</p><p>comercial@grupovl.cl</p></div>
 <div><h4>Ubicación</h4><p>Arturo Prat 1370, Santiago</p><p>Lunes a jueves 09:00 a 17:00 · Viernes 09:00 a 15:00</p></div>
-<div><h4>Empresa</h4><p><a href="#servicios">Servicios</a></p><p><a href="#" data-say="Muestra: aquí se abre Trabaja con nosotros.">Trabaja con nosotros</a></p><p><a href="#" data-say="Muestra: enlace a las Políticas de Gestión en el dominio oficial.">Políticas de gestión</a></p></div>
+<div><h4>Empresa</h4><p><a href="#empresas">Empresas del grupo</a></p><p><a href="#licitaciones">Licitaciones</a></p><p><a href="#" data-say="Muestra: aquí se abre Trabaja con nosotros.">Trabaja con nosotros</a></p><p><a href="#" data-say="Muestra: enlace a las Políticas de Gestión en el dominio oficial.">Políticas de gestión</a></p></div>
 </div>
-<div class="bt"><div class="grp"><span>Grupo VL:</span><span>SUAT</span><span>Tresur</span><span>Maquinfra</span><span>Maxilimpio</span><span>Captotal y Ceducap</span></div><span>© Grupo VL</span></div></div></footer>
+<div class="bt"><div class="grp"><span>Grupo VL:</span><a href="../suat/">SUAT</a><a href="../tresur/">Tresur</a><a href="../maquinfra/">Maquinfra</a><a href="../maxilimpio/">Maxilimpio</a><a href="../captotal-ceducap/">Captotal y Ceducap</a></div><span>© Grupo VL</span></div></div></footer>
 <p class="mock">Maqueta de diseño con fotos y datos publicados hoy por Grupo VL. Lo marcado "Ejemplo" debe validarse antes de publicar.</p>
 
 <div id="toast" role="status"></div>
@@ -301,6 +339,11 @@ ul.steps{padding:0;margin:0}
 
 
 window.PAGE=function(){
+
+ var fl=document.getElementById('fl');if(fl)fl.addEventListener('submit',function(e){e.preventDefault();document.getElementById('flok').textContent='Muestra: en el sitio real la solicitud llegaría a '+fl.dataset.mail+'.'});
+ var claves={aseo:'Aseo industrial y de oficinas',seguridad:'Seguridad privada',residuos:'Gestión de residuos',verdes:'Áreas verdes',estructuras:'Estructuras metálicas',capacitacion:'Capacitación',varios:'Varios servicios',licitacion:null};
+ var mh=(location.hash||'').match(/^#cotizar-([a-z]+)$/);
+ if(mh&&claves[mh[1]]){var s5=document.getElementById('f5');if(s5)s5.value=claves[mh[1]];var c=document.getElementById('cotizar');if(c)setTimeout(function(){c.scrollIntoView()},50)}
  document.querySelectorAll('[data-svc]').forEach(function(a){a.addEventListener('click',function(){var s=document.getElementById('f5');if(s)s.value=a.dataset.svc})});
  /* Regiones: las 5 primeras se deducen de clientes visibles (RM, Valparaíso, O'Higgins, Maule, Biobío); las otras 3 son ejemplo */
  var R=[
